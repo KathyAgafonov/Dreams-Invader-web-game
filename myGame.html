@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="screen-style.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />-->
+
+
+    <title>Document</title>
+</head>
+
+<body>
+<header>
+
+</header>
+
+<!---------------------------------------- menu ---------------------------------------->
+<div class="w3-top">
+    <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="menuNavBar">
+        <a class="w3-bar-item w3-button" onclick="welcomePage_show()">Welcome</a>
+        <a id="about" class="w3-bar-item w3-button" onclick="aboutPopup_show()">About</a>
+        <a id="settings" class="w3-bar-item w3-button" onclick="settingPage_show()">settings</a>
+        <a id="login" class="w3-bar-item w3-button" onclick="loginPage_show()" >Login</a>
+        <a id="register" class="w3-bar-item w3-button" onclick="registerPage_show()">Register</a>
+        <a id="play" class="w3-bar-item w3-button" onclick="game_show()">Play</a>
+
+        <a id="hi" class="w3-bar-item w3" style="float: right; padding-right: 30px;"><span>Hi </span><span id="loged_in_uname">guest</span></a>
+        <a id="nav_logout" class="w3-bar-item w3-button" onclick="logout()" style="display: none;">LogOut</a>
+    </div>
+</div>
+
+<!---------------------------------------- welcome div ---------------------------------------->
+<div id="welcome-page" class="w3-container page">
+        <h3 class="small-game-title w3-text-white">Scary Game</h3>
+        <h1 class="game-subtitle w3-text-white">Dreams Invader</h1>
+        <p class="game-description w3-text-white">Help Rick save Morty from the dreams invader Scary Terry</p>
+        <p class="game-credits w3-text-white">~ Insperation from S1 EP2</p>
+
+    <button class="w3-button w3-white w3-margin-top w3-round-large w3-border w3-border-black" onclick="loginPage_show()" style="height: 5vh; width: 8vw; font-size: 2vh;">Login</button>
+    <button class="w3-button w3-black w3-margin-top w3-round-large" onclick="registerPage_show()" style="height: 5vh; width: 8vw; font-size: 2vh;">Register</button>
+</div>
+
+<!---------------------------------------- about popup div ---------------------------------------->
+<div id="about-popup" class="w3-modal" style="display:none">
+    <div class="w3-modal-content w3-animate-top w3-card-4" style="max-width: 500px; background-color: rgba(255, 255, 255, 0.95);">
+        <header class="w3-container w3-light-grey">
+            <span onclick="aboutPopup_close()" class="w3-button w3-display-topright">&times;</span>
+            <h3>About</h3>
+        </header>
+        <div class="w3-container">
+            <p>Insert your content here.</p>
+        </div>
+    </div>
+</div>
+
+<!---------------------------------------- settings div ---------------------------------------->
+<div id="settings-page" class="w3-modal" style="display:none">
+    <div class="w3-modal-content w3-animate-top w3-card-4" style="max-width: 500px; background-color: rgba(255, 255, 255, 0.95);">
+        <header class="w3-container w3-light-grey">
+            <h3>settings</h3>
+        </header>
+        <div class="w3-container">
+            <p>Insert your content here.</p>
+        </div>
+    </div>
+</div>
+
+<!---------------------------------------- login div ---------------------------------------->
+<div id="login-page" class="login-box w3-container w3-half w3-padding-64 page hide">
+<!--    <div class="w3-modal-content">-->
+        <header class="w3-container">
+            <span onclick="document.getElementById('login').classList.add('hide')" class="w3-button w3-display-topright">&times;</span>
+            <h2>Login</h2>
+        </header>
+        <div class="w3-container">
+            <form id="loginForm">
+                <div class="user-box">
+                    <input type="text" name="username" required="">
+                    <label>Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" name="password" required="">
+                    <label>Password</label>
+                </div>
+                <a href="#" onclick="document.getElementById('loginForm').submit()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <label>Login</label>
+                </a>
+            </form>
+        </div>
+<!--    </div>-->
+</div>
+
+
+<!---------------------------------------- register div ---------------------------------------->
+<div id="register-page" class="w3-container w3-left-align w3-half w3-padding-64 page hide">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 500px">
+        <header class="w3-container w3-light-grey">
+            <span onclick="document.getElementById('register-form').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+            <h3>Register</h3>
+        </header>
+        <div class="w3-container">
+            <form id="register-form">
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+                <span id="password-error" class="error-message"></span>
+
+                <label for="confirm-password"><b>Confirm Password</b></label>
+                <input type="password" placeholder="Confirm Password" name="confirm-password" id="confirm-password" required>
+                <span id="confirm-password-error" class="error-message"></span>
+
+                <label for="firstname"><b>First Name</b></label>
+                <input type="text" placeholder="Enter First Name" name="firstname" id="firstname" required>
+                <span id="firstname-error" class="error-message"></span>
+
+                <label for="lastname"><b>Last Name</b></label>
+                <input type="text" placeholder="Enter Last Name" name="lastname" id="lastname" required>
+                <span id="lastname-error" class="error-message"></span>
+
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Enter Email" name="email" id="email" required>
+                <span id="email-error" class="error-message"></span>
+
+                <label for="dob"><b>Date of Birth</b></label>
+                <div>
+                    <select name="year" id="year" required>
+                        <option value="">Year</option>
+                        <!-- add year options here -->
+                    </select>
+                    <select name="month" id="month" required>
+                        <option value="">Month</option>
+                        <!-- add month options here -->
+                    </select>
+                    <select name="day" id="day" required>
+                        <option value="">Day</option>
+                        <!-- add day options here -->
+                    </select>
+                </div>
+                <span id="dob-error" class="error-message"></span>
+
+                <button type="submit" class="w3-button w3-block w3-green w3-section w3-padding">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!---------------------------------------- the game div ---------------------------------------->
+<div id="game-page" class="w3-container page hide">
+<!--    <div class="w3-modal-content" style="max-width: 80vh">-->
+<!--        <header class="w3-container">-->
+<!--        </header>-->
+        <canvas id="game">
+            <!-- <a>score:</a> -->
+        </canvas>
+<!--    </div>-->
+</div>
+
+
+<!---------------------------------------- footer div ---------------------------------------->
+<div class="w3-bottom">
+    <div class="w3-bar w3-black w3-opacity" id="footer">
+        <a class="w3-bar-item" style="font-size: 2.5vh">
+            Kathy Agafonov & Netanel Krotovich 2023 &copy; Contact us: kathyagafonov@gmail.com , krotonet@post.bgu.ac.il
+        </a>
+    </div>
+</div>
+
+
+
+<script src="js/style.js"></script>
+<script type="module" src="js/game/theGame.js"></script>
+
+</body>
+</html>
