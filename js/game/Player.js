@@ -54,12 +54,12 @@ export default class Player {
         // life decrease
         lifes--;
         if(lifes === 0) {
-            eliminated = true;
+            this.eliminated = true;
         }
     }
 
     stillAlive() {
-        return eliminated;
+        return this.eliminated;
     }
 
     draw(ctx) {
