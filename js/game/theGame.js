@@ -24,6 +24,7 @@ const enemyController = new EnemyController(canvas, enemyBulletController, playe
 
 const backgroundSound = new Audio('./src/audio/Cody_Patterson_Scary_Terry.mp3');
 backgroundSound.volume = 0.2;
+backgroundSound.currentTime = 0;
 backgroundSound.play();
 
 // const scores = [];
@@ -85,7 +86,7 @@ function displayGameOver() {
         isWinner = true;
         isGameOver = true;
     }
-    if(!player.stillAlive()){
+    if(player.hasBeenEliminated() === true){
       isGameOver = true;
     }
   }
