@@ -52,13 +52,13 @@ export default class Player {
         this.flashStartTime = Date.now();
 
         // life decrease
-        lifes--;
-        if(lifes === 0) {
+        this.lifes--;
+        if(this.lifes === 0) {
             this.eliminated = true;
         }
     }
 
-    stillAlive() {
+    hasBeenEliminated() {
         return this.eliminated;
     }
 
