@@ -26,7 +26,7 @@ export default class Player {
         this.height = this.image.height;
 
         this.x = this.canvas.width / 2;
-        this.y = this.canvas.height - this.height * 2.5; // bottom of the screen
+        this.y = this.canvas.height - this.height * 3.5; // bottom of the screen
 
         document.addEventListener("keydown", this.keydown);
         document.addEventListener("keyup", this.keyup);
