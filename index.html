@@ -154,11 +154,11 @@
 
 <!---------------------------------------- the game div ---------------------------------------->
 <div id="game-page" class="w3-container page hide">
-    <p style="color: white; background: transparent; font-size: 2.5vh;";><span>Score:</span> <span id="scoreElement">0</span></p>
-    <canvas id="game"></canvas>
+    <p style="color: white; background: transparent; font-size: 2.5vh;"><span>Score:</span> <span id="scoreElement">0</span></p>
+    <canvas id="game" width="800" height="600" style="display: none;"></canvas>
     <div id="scoreTable"></div>
-
 </div>
+
 
 
 <!---------------------------------------- footer div ---------------------------------------->
@@ -170,6 +170,14 @@
     </div>
 </div>
 
+
+<script>
+    let startGame = false;
+    // set startGame to true when the game should start
+    if (startGame) {
+        document.getElementById("game").style.display = "block";
+    }
+</script>
 
 
 <script src="js/style.js"></script>
