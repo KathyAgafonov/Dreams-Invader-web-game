@@ -22,7 +22,9 @@ const enemyBulletController = new BulletController(canvas, "./src/images/game/sc
 const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController, scoreElement);
 
 
-
+const backgroundSound = new Audio('./src/audio/Cody_Patterson_Scary_Terry.mp3');
+backgroundSound.volume = 0.2;
+backgroundSound.play();
 
 // const scores = [];
 // let currScore =  new Score();
