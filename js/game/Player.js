@@ -28,11 +28,14 @@ export default class Player {
         this.x = this.canvas.width / 2;
         this.y = this.canvas.height - this.height * 3.5; // bottom of the screen
 
+        this.playerSoundDeath = new Audio('./src/audio/fuck_you_player_sound.mp3');
+        this.playerSoundDeath.volume = 0.2;
+
         document.addEventListener("keydown", this.keydown);
         document.addEventListener("keyup", this.keyup);
     }
 
- 
+    
     draw(ctx) {
         // if(this.shootPressed){
         //     this.bulletController.shoot(this.x + this.width / 2, this.y, 4);
