@@ -1,15 +1,14 @@
 import EnemyController from "./EnemyController.js";
-// import Score from "./Score.js";
+import Score from "./Score.js";
 import Player from "./Player.js";
 import BulletController from "./BulletController.js";
 
-// let bulletPlayerImagePath = "./src/images/game/pickle.png";
-
-
 const canvas = document.getElementById("game");
+const scoreElement = document.getElementById("scoreElement");
+
 const ctx = canvas.getContext('2d');
-canvas.width = innerWidth
-canvas.height = innerHeight
+canvas.width = innerWidth;
+canvas.height = innerHeight;
 
 const background = new Image();
 background.src = "src/images/game/background-canvas.png";
@@ -20,7 +19,8 @@ const playerBulletController = new BulletController(canvas, "./src/images/game/p
 const player = new Player(canvas, 3, playerBulletController);
 
 const enemyBulletController = new BulletController(canvas, "./src/images/game/scissors.png");
-const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController);
+const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController, scoreElement);
+
 
 
 
@@ -29,12 +29,15 @@ const enemyController = new EnemyController(canvas, enemyBulletController, playe
 let isGameOver = false;
 let isWinner = false;
 
+let lifes = 3;
+
 
 // To add a score:
 // scores.addScore(100);
 
 // To get the scores:
 // const allScores = scores.getScores();
+
 function game() {
     checkGameOver();
     // ctx.fillStyle = "white";
@@ -69,19 +72,21 @@ function displayGameOver() {
     if (isGameOver) {
       return;
     }
-  
     if (enemyBulletController.collides(player)) {
-      isGameOver = true;
+      lifes--;
+      // isGameOver = true;
     }
-  
     if (enemyController.collides(player)) {
-      isGameOver = true;
+      lifes--;
+      // isGameOver = true;
     }
-  
     if (enemyController.enemyRows.length === 0) {
         isWinner = true;
         isGameOver = true;
     }
+    if(lifes === 0){
+      isGameOver = true;
+    }
   }
-// setInterval(game, 1000 / 60);
-setInterval(game, 10);
+setInterval(game, 1000 / 60);
+// setInterval(game, 10);
