@@ -73,21 +73,17 @@ function displayGameOver() {
       return;
     }
     if (enemyBulletController.collides(player)) {
-      player.hit(); // play a sound
-      lifes--;
-
-      // isGameOver = true;
+      player.hit();
     }
+
     if (enemyController.collides(player)) {
-      player.hit(); // play a sound
-      lifes--;
-      // isGameOver = true;
+      player.hit();
     }
     if (enemyController.enemyRows.length === 0) {
         isWinner = true;
         isGameOver = true;
     }
-    if(lifes === 0){
+    if(!player.stillAlive()){
       isGameOver = true;
     }
   }
