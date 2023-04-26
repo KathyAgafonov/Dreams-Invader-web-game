@@ -79,7 +79,7 @@ function settingPage_show() {
 function loginPage_show() {
     let loginPage = document.getElementById("login-page");
     // loginPage.classList.remove("hide");
-    setBackgroundImage('src/images/screens/log-reg-back.png');
+    // setBackgroundImage('src/images/screens/log-reg-back.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {

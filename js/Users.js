@@ -3,7 +3,7 @@ const SavedUsers =
     [
         {
             username: "p",
-            password: "p",
+            password: "testuser",
             fullName: "",
             email: "",
             birthDate: ""

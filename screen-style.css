@@ -100,16 +100,17 @@ header {
 }
  /* --------------------------------- login ---------------------------------*/
 .login-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
+    position: inherit;
+    height: 5vh; width: 10vw; font-size: 5vh;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* width: 400px; */
+    /* padding: 40px; */
+    /* transform: translate(-50%, -50%); */
+    /* background: rgba(0, 0, 0, 0.5); */
+    /* box-sizing: border-box; */
+    /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); */
+    /* border-radius: 10px; */
 }
 
 .login-box h2 {
@@ -159,10 +160,10 @@ header {
     display: inline-block;
     padding: 10px 20px;
     color: #f4b41a;
-    font-size: 16px;
+    font-size: 2vh;
     text-decoration: none;
     text-transform: uppercase;
-    overflow: hidden;
+    /* overflow: hidden; */
     transition: 0.5s;
     margin-top: 40px;
     letter-spacing: 4px
