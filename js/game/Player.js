@@ -15,6 +15,9 @@ export default class Player {
     flashStartTime = 0;
     flashDuration = 500; // in milliseconds
 
+    lifes = 3;
+    eliminated = false;
+
     constructor(canvas, velocity, bulletController) {
         this.canvas = canvas;
         this.velocity = velocity;
@@ -39,15 +42,24 @@ export default class Player {
         document.addEventListener("keyup", this.keyup);
     }
 
-    flash() {
-        this.flashing = true;
-        this.flashStartTime = Date.now();
-    }
-
     hit() {
+        // hit sound
         this.playerSoundDeath.currentTime = 0;
         this.playerSoundDeath.play();
-        this.flash();
+
+        // flashing image
+        this.flashing = true;
+        this.flashStartTime = Date.now();
+
+        // life decrease
+        lifes--;
+        if(lifes === 0) {
+            eliminated = true;
+        }
+    }
+
+    stillAlive() {
+        return eliminated;
     }
 
     draw(ctx) {
