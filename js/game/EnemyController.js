@@ -16,9 +16,9 @@ export default class EnemyController {
     accelerationCount = 0;
     accelerationAmount = 1;
     projectileSpeed = -3;
+    score = 0;
 
-
-    constructor(canvas, enemyBulletController, playerBulletController) {
+    constructor(canvas, enemyBulletController, playerBulletController, scoreElement) {
         this.canvas = canvas;
         this.enemyBulletController = enemyBulletController;
         this.playerBulletController = playerBulletController;
@@ -28,6 +28,11 @@ export default class EnemyController {
         this.createEnemies();
         this.direction = 1; // 1 for right, -1 for left
         this.speed = 2;
+        this.scoreElement = scoreElement;
+    }
+
+    getScore() {
+        return this.score;
     }
 
     draw(ctx) {
@@ -38,12 +43,35 @@ export default class EnemyController {
         this.fireBullet();
     }
 
+    createEnemies() {
+        let enemy = new Enemy(0, 1, 1);
+        this.enemyMap.forEach((row, rowIndex) => {
+            this.enemyRows[rowIndex] = [];
+            row.forEach((enemyNum, enemyIndex) => {
+                this.enemyRows[rowIndex].push(new Enemy(enemyIndex * enemy.width * 0.8, (rowIndex + 1) * enemy.height * 0.8 + enemy.y, enemyNum));
+            });
+        });
+    }
+
     collisionDetect() {
-        this.enemyRows.forEach((enemyRow) => {
+        this.enemyRows.forEach((enemyRow, rowNumber) => {
             enemyRow.forEach((enemy, enemyIndex) => {
                 if(this.playerBulletController.collides(enemy)) {
                     this.enemySoundDeath.currentTime = 0;
                     this.enemySoundDeath.play();
+                    if(rowNumber == 3) {
+                        this.score += 5;
+                    }
+                    if(rowNumber == 2) {
+                        this.score += 10;
+                    }
+                    if(rowNumber == 1) {
+                        this.score += 15;
+                    }
+                    if(rowNumber == 0) {
+                        this.score += 20;
+                    }
+                    this.scoreElement.innerHTML = this.score;
                     enemyRow.splice(enemyIndex, 1);
                 }
             });
@@ -55,6 +83,7 @@ export default class EnemyController {
     collides(object) {
         return this.enemyRows.flat().some((enemy) => enemy.collides(object));
     }
+
 
     fireBullet() {
         this.fireBulletTimer--;
@@ -91,23 +120,10 @@ export default class EnemyController {
             }
         }
     }
-    
-    
-
-    createEnemies() {
-        let enemy = new Enemy(0, 1, 1);
-        this.enemyMap.forEach((row, rowIndex) => {
-            this.enemyRows[rowIndex] = [];
-            row.forEach((enemyNum, enemyIndex) => {
-                this.enemyRows[rowIndex].push(new Enemy(enemyIndex * enemy.width * 0.8, (rowIndex + 1) * enemy.height * 0.8 + enemy.y, enemyNum));
-            });
-        });
-    }
-
 
     // This function updates the enemy positions and speeds up the enemies every 5 seconds for max 4 times
     updateEnemies() {
-        console.log("enemy speed:" + this.speed)
+        // console.log("enemy speed:" + this.speed)
         let enemyMoved = false;
         this.enemyRows.flat().forEach((enemy) => {
             const newPosX = enemy.x + this.direction * this.speed;
