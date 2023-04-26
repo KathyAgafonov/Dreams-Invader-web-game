@@ -73,15 +73,13 @@ function displayGameOver() {
       return;
     }
     if (enemyBulletController.collides(player)) {
-      player.playerSoundDeath.currentTime = 0;
-      player.playerSoundDeath.play();
+      player.hit(); // play a sound
       lifes--;
 
       // isGameOver = true;
     }
     if (enemyController.collides(player)) {
-      player.playerSoundDeath.currentTime = 0;
-      player.playerSoundDeath.play();
+      player.hit(); // play a sound
       lifes--;
       // isGameOver = true;
     }
