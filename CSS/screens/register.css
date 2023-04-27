@@ -1,4 +1,4 @@
-.register-box {
+/* .register-box {
   position: absolute;
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.6);
@@ -9,22 +9,33 @@
   left: 25%;
   width: 390px;
   padding: 35px;
+} */
+
+.register-box {
+  position: absolute;
+  margin-top: 10vh;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 100%;
+  padding: 40px;
+  transform: translate(-50%, -50%);
 }
+
 
 .register-box h2 {
-  font-family: 'Permanent Marker', cursive;
-  margin: 0 0 30px;
-  padding: 0;
-  color: #fff;
-  text-align: center;
-  font-size: 7vh;
+    font-family: 'Permanent Marker', cursive;
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
 }
 
-.register-box .user-register-box {
+.register-box .user-box {
   position: relative;
 }
 
-.register-box .user-register-box input {
+.register-box .user-box input {
   width: 100%;
   padding: 10px 0;
   color: #fff;
@@ -36,7 +47,7 @@
   font-size: 2.5vh;
 }
 
-.register-box .user-register-box label {
+.register-box .user-box label {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,7 +58,7 @@
   font-size: 2.5vh;
 }
 
-.register-box .user-register-box p {
+.register-box .user-box p {
   position: absolute;
   top: 0;
   left: 0;
@@ -58,8 +69,8 @@
   font-size: 2vh;
 }
 
-.register-box .user-register-box input:focus ~ label,
-.register-box .user-register-box input:valid ~ label {
+.register-box .user-box input:focus ~ label,
+.register-box .user-box input:valid ~ label {
   top: -20px;
   left: 0;
   color: #40f521;

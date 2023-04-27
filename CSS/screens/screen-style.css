@@ -9,6 +9,12 @@ html {
     height: 100%;
 }
 
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
 header {
     height: 5vh;
 }
