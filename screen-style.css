@@ -23,7 +23,7 @@ body {
 }
 
 header {
-    height: 10vh;
+    height: 5vh;
 }
 
 /*Adjusting the resolution of the navigation menu according to the screen size*/
@@ -48,6 +48,7 @@ header {
     background-color: brown;
     font-family: 'Permanent Marker', cursive;
     width: 50%;
+    align-self:center;
 }
 
 .small-game-title {
@@ -108,9 +109,7 @@ header {
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
   }
   
@@ -151,7 +150,7 @@ header {
   .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: red;
+    color: #f4b41a;
     /* color: #03e9f4; */
     font-size: 12px;
   }
@@ -263,22 +262,18 @@ header {
   #onlineUserText {
     color:white;
   }
+  
+  
+/*--------------------------------register -------------------------------*/
 
 
-
- /* register */
- 
-
- .register-box {
+.register-box {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
   }
   
@@ -320,7 +315,7 @@ header {
   .register-box .register-user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #f4b41a;
+    color: #ffffff;
     font-size: 12px;
   }
   
@@ -485,20 +480,7 @@ header {
   .fa-eye-slash:before {
     content: "\f070";
   }
-
   
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-
 /* --------------------------------- game ---------------------------------*/
 #game-page {
     /*display: block;*/
