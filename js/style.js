@@ -1,29 +1,58 @@
-// ----------------------------------- change background image -----------------------------------
-function setBackgroundImage(src) {
-    let body = document.getElementsByTagName("body")[0];
-    body.style.backgroundImage = `url(${src})`;
-    body.style.backgroundSize = "cover";
-    body.style.backgroundRepeat = "no-repeat";
-    body.style.backgroundPosition = "center";
-}
+// ----------------------------------- initialization -----------------------------------
+let shootKey = ' '
+let timerDuration = 120000;  //in seconds
+let logesUser;
+let isUserLoggedIn = false;
+var muteSound =true;
 
-// ----------------------------------- Welcome page -----------------------------------
-function welcomePage_show() {
-    let welcomePage = document.getElementById("welcome-page");
-    welcomePage.classList.remove("hide");
+let backgroundWelcomePagePath = 'src/images/screens/scary-welcome-cover.png';
+let backgroundOtherPagesPath = 'src/images/screens/second_background.png';
+let backgroundGamePagesPath = 'src/images/screens/background-canvas.png';
 
-    setBackgroundImage('src/images/screens/scary-welcome-cover.png');
+switchPage('settings-page', null);
+
+$(document).ready(function() {
+    switchPage('welcome-page', backgroundWelcomePagePath);
+    // addEventListenerAlerts();
+});
+
+
+
+
+// ----------------------------------- switchPages -----------------------------------
+
+function switchPage(pageName, backgroundImagePath) {
+    console.log(pageName)
+    let pageToShow = document.getElementById(pageName);
+    pageToShow.classList.remove("hide");
+
+    if(backgroundImagePath != null)  {
+        setBackgroundImage(backgroundImagePath);
+    }
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
-        if (pages[i].id !== "welcome-page") {
+        if (pages[i].id !== pageName) { // remove quotes around pageName variable
             pages[i].classList.add("hide");
-        }
-        else {
-            pages[i].classList.remove("hide");
         }
     }
 }
+
+
+// ----------------------------------- change background image -----------------------------------
+function setBackgroundImage(src) {
+    let image = new Image();
+    image.addEventListener('load', () => {
+        let body = document.getElementsByTagName("body")[0];
+        body.style.backgroundImage = `url(${src})`;
+        body.style.backgroundSize = "cover";
+        body.style.backgroundRepeat = "no-repeat";
+        body.style.backgroundPosition = "center";
+    });
+    image.src = src;
+}
+
+
 
 // ----------------------------------- about popup -----------------------------------
 function aboutPopup_show() {
@@ -57,115 +86,61 @@ function aboutPopup_close_onClickOutside(event) {
 }
 
 
-// ----------------------------------- settings page -----------------------------------
-function settingPage_show() {
-    let settingsPage = document.getElementById("settings-page");
-    settingsPage.classList.remove("hide");
-    setBackgroundImage('src/images/screens/second_background.png');
-
-    let pages = document.getElementsByClassName("page");
-    for (let i = 0; i < pages.length; i++) {
-        if (pages[i].id !== "settings-page") {
-            pages[i].classList.add("hide");
-        }
-        else {
-            pages[i].classList.remove("hide");
-        }
-    }
-}
-
 
   
   
-
-
-// ----------------------------------- login page -----------------------------------
-function loginPage_show() {
-    let loginPage = document.getElementById("login-page");
-    // loginPage.classList.remove("hide");
-    setBackgroundImage('src/images/screens/second_background.png');
-
-    let pages = document.getElementsByClassName("page");
-    for (let i = 0; i < pages.length; i++) {
-        if (pages[i].id !== "login-page") {
-            pages[i].classList.add("hide");
-        }
-        else {
-            pages[i].classList.remove("hide");
-        }
-    }
-}
 
 
 // ----------------------------------- register page -----------------------------------
-function registerPage_show() {
-    let registerPage = document.getElementById("register-page");
-    registerPage.classList.remove("hide");
-
-    setBackgroundImage('src/images/screens/second_background.png');
-
-    let pages = document.getElementsByClassName("page");
-    for (let i = 0; i < pages.length; i++) {
-        if (pages[i].id !== "register-page") {
-            pages[i].classList.add("hide");
-        }
-        else {
-            pages[i].classList.remove("hide");
-        }
-    }
-}
-
-
-
-$().ready(function() {
-    $("#registerForm").validate({
-        rules: {
-            Username: "required",
-            Password: { 
-                required: true,
-                minlength: 6,
-                pwcheck: true
-            },
-            Fullname: {
-                required: true,
-                fncheck: true
-            },
+// $().ready(function() {
+//     $("#registerForm").validate({
+//         rules: {
+//             Username: "required",
+//             Password: { 
+//                 required: true,
+//                 minlength: 6,
+//                 pwcheck: true
+//             },
+//             Fullname: {
+//                 required: true,
+//                 fncheck: true
+//             },
      
-            Email: {
-                required: true,
-                email: true
-            },
-            DateOfBirth: "required"
-        },
-        messages: {
-            Username: "Missing",
-            Password: {
-                required: "Missing",
-                minlength: "Minimum 6 characters",
-                pwcheck: "Must contain letters and numbers"
-            },
-            Fullname: {
-                required: "Missing",
-                fncheck: "Can't contain numbers"
-            },
-            Email: {
-                required:"Missing",
-                email: "Email is not valid"
-            },
-            DateOfBirth: "Missing"
-        },
-        errorPlacement: function(label, element) {
-            label.addClass('errorMessage');
-            label.insertAfter(element);
-          },
-          wrapper: 'span',
+//             Email: {
+//                 required: true,
+//                 email: true
+//             },
+//             DateOfBirth: "required"
+//         },
+//         messages: {
+//             Username: "Missing",
+//             Password: {
+//                 required: "Missing",
+//                 minlength: "Minimum 6 characters",
+//                 pwcheck: "Must contain letters and numbers"
+//             },
+//             Fullname: {
+//                 required: "Missing",
+//                 fncheck: "Can't contain numbers"
+//             },
+//             Email: {
+//                 required:"Missing",
+//                 email: "Email is not valid"
+//             },
+//             DateOfBirth: "Missing"
+//         },
+//         errorPlacement: function(label, element) {
+//             label.addClass('errorMessage');
+//             label.insertAfter(element);
+//           },
+//           wrapper: 'span',
 
-          submitHandler: function(event){
-            registerSubmit();
-        }
+//           submitHandler: function(event){
+//             registerSubmit();
+//         }
 
-    });
-});
+//     });
+// });
 
 // $.validator.addMethod("pwcheck",function(value) {
 //     return /^[A-z0-9\d=!\-@._*]*$/.test(value) && /[A-z]/.test(value) && /\d/.test(value);
@@ -175,27 +150,6 @@ $().ready(function() {
 //     return !(/[0-9]/.test(value));
 // });
 
-
-
-// ----------------------------------- game page -----------------------------------
-function game_show() {
-    let gamePage = document.getElementById("game-page");
-    gamePage.classList.remove("hide");
-
-    let body = document.getElementsByTagName("body")[0];
-    body.style.backgroundImage = null;
-    body.style.background = "black";
-
-    let pages = document.getElementsByClassName("page");
-    for (let i = 0; i < pages.length; i++) {
-        if (pages[i].id !== "game-page") {
-            pages[i].classList.add("hide");
-        }
-        else {
-            pages[i].classList.remove("hide");
-        }
-    }
-}
 
 
 
