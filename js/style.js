@@ -75,6 +75,11 @@ function settingPage_show() {
     }
 }
 
+
+  
+  
+
+
 // ----------------------------------- login page -----------------------------------
 function loginPage_show() {
     let loginPage = document.getElementById("login-page");

@@ -5,6 +5,7 @@ import BulletController from "./BulletController.js";
 
 const canvas = document.getElementById("game");
 const scoreElement = document.getElementById("scoreElement");
+console.log(scoreElement)
 
 const ctx = canvas.getContext('2d');
 canvas.width = innerWidth;

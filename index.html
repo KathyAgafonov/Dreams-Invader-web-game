@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="screen-style.css"/>
+    <link rel="stylesheet" href="./src/CSS/settings.css"/>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -35,6 +36,7 @@
     </div>
 </div>
 
+
 <!---------------------------------------- welcome div ---------------------------------------->
 <div id="welcome-page" class="w3-container page">
         <h3 class="small-game-title w3-text-white">Scary Game</h3>
@@ -46,24 +48,13 @@
     <button class="w3-button w3-black w3-margin-top w3-round-large" onclick="registerPage_show()" style="height: 5vh; width: 8vw; font-size: 2vh;">Register</button>
 </div>
 
+
 <!---------------------------------------- about popup div ---------------------------------------->
 <div id="about-popup" class="w3-modal" style="display:none">
     <div class="w3-modal-content w3-animate-top w3-card-4" style="max-width: 500px; background-color: rgba(255, 255, 255, 0.95);">
         <header class="w3-container w3-light-grey">
             <span onclick="aboutPopup_close()" class="w3-button w3-display-topright">&times;</span>
             <h3>About</h3>
-        </header>
-        <div class="w3-container">
-            <p>Insert your content here.</p>
-        </div>
-    </div>
-</div>
-
-<!---------------------------------------- settings div ---------------------------------------->
-<div id="settings-page" class="w3-modal" style="display:none">
-    <div class="w3-modal-content w3-animate-top w3-card-4" style="max-width: 500px; background-color: rgba(255, 255, 255, 0.95);">
-        <header class="w3-container w3-light-grey">
-            <h3>settings</h3>
         </header>
         <div class="w3-container">
             <p>Insert your content here.</p>
@@ -98,7 +89,7 @@
 
 
 <!---------------------------------------- register div ---------------------------------------->
-<div id="register-page" class="w3-container w3-left-align w3-half w3-padding-64 page hide">
+<div id="register-page" class="w3-container w3-half w3-padding-64 page hide">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 500px">
         <header class="w3-container w3-light-grey">
             <span onclick="document.getElementById('register-form').style.display='none'" class="w3-button w3-display-topright">&times;</span>
@@ -152,6 +143,35 @@
     </div>
 </div>
 
+
+<!---------------------------------------- settings div ---------------------------------------->
+<div id="settings-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
+    <div class="w3-container">
+            <div class="setting-box">
+            <h2>Setting</h2>
+            <form id="settingForm" method="post">
+        
+                <div class="user-setting-box">
+                    <label>Game Time: <span id="gameTimeDisplay" style="color: #40f521;">120</span><span style="color: #40f521;"> seconds</span></label>
+                    </br>
+                    </br>
+                    <input type="range" name="gameTime" min="120" max="1000" step="1" value="2">
+                </div>
+
+                <div class="user-setting-box">
+                <input type="text" name="shootKey" required="" autocomplete="off">
+                <label>Shooting key</label>
+                </div>
+
+                <div>
+                    <button id="play_btn_area" onclick="welcomePage_show()"><span>Play</span></button>
+                </div>
+            </form>
+            </div>
+    </div>
+</div>
+
+
 <!---------------------------------------- the game div ---------------------------------------->
 <div id="game-page" class="w3-container page hide">
     <p style="color: white; background: transparent; font-size: 2.5vh;"><span>Score:</span> <span id="scoreElement">0</span></p>
@@ -181,6 +201,8 @@
 
 
 <script src="js/style.js"></script>
+<script src="js/pages/settings.js"></script>
+
 <script type="module" src="js/game/theGame.js"></script>
 
 </body>

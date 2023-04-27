@@ -45,7 +45,7 @@ header {
 
 .w3-container {
     /*padding-left: 100vh;*/
-    /*background-color: brown;*/
+    background-color: brown;
     font-family: 'Permanent Marker', cursive;
     width: 50%;
 }
@@ -151,7 +151,7 @@ header {
   .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #f4b41a;
+    color: red;
     /* color: #03e9f4; */
     font-size: 12px;
   }
