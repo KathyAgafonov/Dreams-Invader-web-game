@@ -13,11 +13,20 @@
     
     .setting-box h2 {
         font-family: 'Permanent Marker', cursive;
-        margin: 0 0 30px;
-        padding: 0;
+        /* margin: 0 0 30px; */
+        /* padding: 0; */
         color: #fff;
         text-align: center;
         font-size: 7vh;
+    }
+
+    .setting-box h1 {
+        font-family: 'Permanent Marker', cursive;
+        top: 0;
+        bottom: 0;
+        padding-top: 0;
+        color: #fff;
+        font-size: 2.5vh;
     }
 
     .setting-box .user-setting-box {
