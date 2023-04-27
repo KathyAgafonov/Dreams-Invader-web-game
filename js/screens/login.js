@@ -29,11 +29,11 @@ function loginSubmit(){
     else if(verifyUser(values["Username"],values["Password"])){
         onlineUser = values["Username"];
         showUsername();
-        welcomePage_show();
+        switchPage('settings-page', null);
         $("#register_menu").hide();
         // $("#login_menu").hide();
         $("#nav_logout").show();
-        onlineUserText.show();
+        // onlineUserText.show();
     }
     else {
         alert("Incorrect  username or password is incorrect");

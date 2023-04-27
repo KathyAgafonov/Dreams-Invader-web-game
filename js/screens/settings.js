@@ -61,10 +61,10 @@ document.addEventListener('keyup', (event) => {
   
   // ----------------------- Constraint on the PLAY button -----------------------
   // If the user presses PLAY when the shootkey input box it will pop up an alert and not let him start playing
-  function playButtonClicked() {
-    var shootKeyInput = document.getElementsByName('shootKey')[0];
-    console.log(shootKeyInput)
-    welcomePage_show()
+  // function playButtonClicked() {
+    // var shootKeyInput = document.getElementsByName('shootKey')[0];
+    // console.log(shootKeyInput)
+    // welcomePage_show()
     // if (shootKeyInput.value.trim() == '') {
     //   alert('Please enter a value for the shootKey input.');
     //   return false;
@@ -72,6 +72,6 @@ document.addEventListener('keyup', (event) => {
     
     // Otherwise, continue with the game.
     // ...
-  }
+  // }
 
   
