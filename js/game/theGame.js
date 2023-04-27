@@ -1,15 +1,18 @@
 import EnemyController from "./EnemyController.js";
-import Score from "./Score.js";
+// import Score from "./Score.js";
 import Player from "./Player.js";
 import BulletController from "./BulletController.js";
+
+// let bulletPlayerImagePath = "./src/images/game/pickle.png";
+
 
 const canvas = document.getElementById("game");
 const scoreElement = document.getElementById("scoreElement");
 console.log(scoreElement)
 
 const ctx = canvas.getContext('2d');
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.width = innerWidth
+canvas.height = innerHeight
 
 const background = new Image();
 background.src = "src/images/game/background-canvas.png";
@@ -20,12 +23,11 @@ const playerBulletController = new BulletController(canvas, "./src/images/game/p
 const player = new Player(canvas, 3, playerBulletController);
 
 const enemyBulletController = new BulletController(canvas, "./src/images/game/scissors.png");
-const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController, scoreElement);
+const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController);
 
 
 const backgroundSound = new Audio('./src/audio/Cody_Patterson_Scary_Terry.mp3');
 backgroundSound.volume = 0.2;
-backgroundSound.currentTime = 0;
 backgroundSound.play();
 
 // const scores = [];
@@ -36,13 +38,11 @@ let isWinner = false;
 let lifes = 3;
 
 
-
 // To add a score:
 // scores.addScore(100);
 
 // To get the scores:
 // const allScores = scores.getScores();
-
 function game() {
   let rankNumber = 1;
 
@@ -80,20 +80,22 @@ function displayGameOver() {
       
       return;
     }
+  
     if (enemyBulletController.collides(player)) {
-      player.hit();
+      isGameOver = true;
     }
-
+  
     if (enemyController.collides(player)) {
-      player.hit();
+      isGameOver = true;
     }
+  
     if (enemyController.enemyRows.length === 0) {
         isWinner = true;
         isGameOver = true;
     }
-    if(player.hasBeenEliminated() === true){
+    if(!player.stillAlive()){
       isGameOver = true;
     }
   }
-setInterval(game, 1000 / 60);
-// setInterval(game, 10);
+// setInterval(game, 1000 / 60);
+setInterval(game, 10);

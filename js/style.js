@@ -84,7 +84,7 @@ function settingPage_show() {
 function loginPage_show() {
     let loginPage = document.getElementById("login-page");
     // loginPage.classList.remove("hide");
-    setBackgroundImage('src/images/screens/second_background.png');
+    // setBackgroundImage('src/images/screens/log-reg-back.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
@@ -100,14 +100,14 @@ function loginPage_show() {
 
 // ----------------------------------- register page -----------------------------------
 function registerPage_show() {
-    let registerPage = document.getElementById("register-page");
+    let registerPage = document.getElementById("register");
     registerPage.classList.remove("hide");
 
     setBackgroundImage('src/images/screens/second_background.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
-        if (pages[i].id !== "register-page") {
+        if (pages[i].id !== "register") {
             pages[i].classList.add("hide");
         }
         else {
@@ -115,6 +115,67 @@ function registerPage_show() {
         }
     }
 }
+
+
+
+$().ready(function() {
+    $("#registerForm").validate({
+        rules: {
+            Username: "required",
+            Password: { 
+                required: true,
+                minlength: 6,
+                pwcheck: true
+            },
+            Fullname: {
+                required: true,
+                fncheck: true
+            },
+     
+            Email: {
+                required: true,
+                email: true
+            },
+            DateOfBirth: "required"
+        },
+        messages: {
+            Username: "Missing",
+            Password: {
+                required: "Missing",
+                minlength: "Minimum 6 characters",
+                pwcheck: "Must contain letters and numbers"
+            },
+            Fullname: {
+                required: "Missing",
+                fncheck: "Can't contain numbers"
+            },
+            Email: {
+                required:"Missing",
+                email: "Email is not valid"
+            },
+            DateOfBirth: "Missing"
+        },
+        errorPlacement: function(label, element) {
+            label.addClass('errorMessage');
+            label.insertAfter(element);
+          },
+          wrapper: 'span',
+
+          submitHandler: function(event){
+            registerSubmit();
+        }
+
+    });
+});
+
+// $.validator.addMethod("pwcheck",function(value) {
+//     return /^[A-z0-9\d=!\-@._*]*$/.test(value) && /[A-z]/.test(value) && /\d/.test(value);
+// });
+
+// $.validator.addMethod("fncheck",function(value) {
+//     return !(/[0-9]/.test(value));
+// });
+
 
 
 // ----------------------------------- game page -----------------------------------
