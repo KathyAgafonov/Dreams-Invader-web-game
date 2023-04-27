@@ -13,7 +13,7 @@ function welcomePage_show() {
     let welcomePage = document.getElementById("welcome-page");
     welcomePage.classList.remove("hide");
 
-    setBackgroundImage('src/images/screens/scary-welcome-cover.png');
+    setBackgroundImage('Resource/images/screens/scary-welcome-cover.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
@@ -62,7 +62,7 @@ function aboutPopup_close_onClickOutside(event) {
 function settingPage_show() {
     let settingsPage = document.getElementById("settings-page");
     settingsPage.classList.remove("hide");
-    setBackgroundImage('src/images/screens/second_background.png');
+    setBackgroundImage('Resource/images/screens/second_background.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
@@ -84,7 +84,7 @@ function settingPage_show() {
 function loginPage_show() {
     let loginPage = document.getElementById("login-page");
     // loginPage.classList.remove("hide");
-    setBackgroundImage('src/images/screens/second_background.png');
+    setBackgroundImage('Resource/images/screens/second_background.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
@@ -103,7 +103,7 @@ function registerPage_show() {
     let registerPage = document.getElementById("register-page");
     registerPage.classList.remove("hide");
 
-    setBackgroundImage('src/images/screens/second_background.png');
+    setBackgroundImage('Resource/images/screens/second_background.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
