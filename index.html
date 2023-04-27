@@ -16,11 +16,10 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <!-- <script src="./js/jquery-3.4.1.slim.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/jquery-3.4.1.slim.min.js"></script>
 
     <script src="./js/screens/login.js"></script>
-    <script src="./js/screens/register.js"></script>
+
     <script src="./js/screens/settings.js"></script>
 
 
@@ -104,35 +103,47 @@
 
 
 <!---------------------------------------- register div ---------------------------------------->
-<div id="register" class="register-box w3-container w3-half w3-padding-64 page hide">
-    <h2>Register</h2>
-    <form id="registerForm" method="post">
-      <div class="register-user-box">
-        <input type="text" name="Username" id="Username">
-        <label>Username</label>
-      </div>
-      <div class="register-user-box">
-        <input type="password" id="pass_reg" name="Password">
-        <label>Password</label>
-        <!-- <span toggle="#password-field" class="regEyeloc fa fa-fw fa-eye field_icon toggle-password"></span> -->
-      </div>
-      <div class="register-user-box">
-        <input type="text" name="Fullname">
-        <label>Full name</label>
-      </div>
-      <div class="register-user-box">
-        <input type="email" name="Email"> 
-        <label>Email</label>
-      </div>
-      <div class="register-user-box">
-        <input type="date" name="DateOfBirth">
-        <label>Date of Birth</label>
-      </div>
-      <div id="register_btn_area">
-        <input id="subRegister" type="submit"  value="Done"></input>
-      </div >
-    </form>
+<div id="register-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
+    <div class="w3-container">
+        <div class="register-box">
+            <h2>Register</h2>
+            <form id="registerForm" method="post">
+
+                <div class="user-register-box">
+                    <input type="text" name="Username" required="">
+                    <label>Username</label>
+                </div>
+
+                <div class="user-register-box">
+                    <input type="text" name="Password" required="">
+                    <label>Password</label>
+                  </div>
+
+                  <div class="user-register-box">
+                    <input type="text" name="Fullname" required="">
+                    <label>Full name</label>
+                  </div>
+
+                  <div class="user-register-box">
+                    <input type="email" name="Email" required=""> 
+                    <label>Email</label>
+                  </div>
+
+                  <div class="user-register-box">
+                    <input type="date" name="DateOfBirth" required="">
+                    <label>Date of Birth</label>
+                  </div>
+
+                  <div>
+                    <button id="register_btn_area" onclick="welcomePage_show()"><span>Register</span></button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
 </div>
+
 
 
 <!---------------------------------------- settings div ---------------------------------------->
@@ -192,7 +203,9 @@
 
 
 <script src="js/style.js"></script>
-<script src="js/pages/settings.js"></script>
+<script src="./js/screens/register.js"></script>
+
+<!-- <script src="js/pages/settings.js"></script> -->
 
 <script type="module" src="js/game/theGame.js"></script>
 

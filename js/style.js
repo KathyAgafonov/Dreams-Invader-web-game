@@ -99,14 +99,14 @@ function loginPage_show() {
 
 // ----------------------------------- register page -----------------------------------
 function registerPage_show() {
-    let registerPage = document.getElementById("register");
+    let registerPage = document.getElementById("register-page");
     registerPage.classList.remove("hide");
 
     setBackgroundImage('src/images/screens/second_background.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
-        if (pages[i].id !== "register") {
+        if (pages[i].id !== "register-page") {
             pages[i].classList.add("hide");
         }
         else {

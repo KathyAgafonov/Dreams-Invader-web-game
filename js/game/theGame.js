@@ -93,9 +93,9 @@ function displayGameOver() {
         isWinner = true;
         isGameOver = true;
     }
-    if(!player.stillAlive()){
-      isGameOver = true;
-    }
+    // if(!player.stillAlive()){
+    //   isGameOver = true;
+    // }
   }
 // setInterval(game, 1000 / 60);
 setInterval(game, 10);
