@@ -62,7 +62,7 @@ function aboutPopup_close_onClickOutside(event) {
 function settingPage_show() {
     let settingsPage = document.getElementById("settings-page");
     settingsPage.classList.remove("hide");
-    setBackgroundImage('Resource/images/screens/second_background.png');
+    setBackgroundImage('src/images/screens/second_background.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
