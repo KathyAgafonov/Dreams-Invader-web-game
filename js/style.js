@@ -12,7 +12,7 @@ function welcomePage_show() {
     let welcomePage = document.getElementById("welcome-page");
     welcomePage.classList.remove("hide");
 
-    setBackgroundImage('Resource/images/screens/scary-welcome-cover.png');
+    setBackgroundImage('src/images/screens/scary-welcome-cover.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
@@ -102,7 +102,7 @@ function registerPage_show() {
     let registerPage = document.getElementById("register");
     registerPage.classList.remove("hide");
 
-    setBackgroundImage('Resource/images/screens/second_background.png');
+    setBackgroundImage('src/images/screens/second_background.png');
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {

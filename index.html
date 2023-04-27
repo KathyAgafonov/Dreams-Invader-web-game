@@ -19,8 +19,11 @@
     <!-- <script src="./js/jquery-3.4.1.slim.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="./js/register.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="./js/screens/login.js"></script>
+    <script src="./js/screens/register.js"></script>
+    <script src="./js/screens/settings.js"></script>
+
+
     <script src="./js/db.js"></script>
 
 
@@ -101,58 +104,34 @@
 
 
 <!---------------------------------------- register div ---------------------------------------->
-<div id="register-page" class="w3-container w3-half w3-padding-64 page hide">
-    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 500px">
-        <header class="w3-container w3-light-grey">
-            <span onclick="document.getElementById('register-form').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-            <h3>Register</h3>
-        </header>
-        <div class="w3-container">
-            <form id="register-form">
-                <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required>
-
-                <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" id="password" required>
-                <span id="password-error" class="error-message"></span>
-
-                <label for="confirm-password"><b>Confirm Password</b></label>
-                <input type="password" placeholder="Confirm Password" name="confirm-password" id="confirm-password" required>
-                <span id="confirm-password-error" class="error-message"></span>
-
-                <label for="firstname"><b>First Name</b></label>
-                <input type="text" placeholder="Enter First Name" name="firstname" id="firstname" required>
-                <span id="firstname-error" class="error-message"></span>
-
-                <label for="lastname"><b>Last Name</b></label>
-                <input type="text" placeholder="Enter Last Name" name="lastname" id="lastname" required>
-                <span id="lastname-error" class="error-message"></span>
-
-                <label for="email"><b>Email</b></label>
-                <input type="email" placeholder="Enter Email" name="email" id="email" required>
-                <span id="email-error" class="error-message"></span>
-
-                <label for="dob"><b>Date of Birth</b></label>
-                <div>
-                    <select name="year" id="year" required>
-                        <option value="">Year</option>
-                        <!-- add year options here -->
-                    </select>
-                    <select name="month" id="month" required>
-                        <option value="">Month</option>
-                        <!-- add month options here -->
-                    </select>
-                    <select name="day" id="day" required>
-                        <option value="">Day</option>
-                        <!-- add day options here -->
-                    </select>
-                </div>
-                <span id="dob-error" class="error-message"></span>
-
-                <button type="submit" class="w3-button w3-block w3-green w3-section w3-padding">Register</button>
-            </form>
-        </div>
-    </div>
+<div id="register" class="register-box w3-container w3-half w3-padding-64 page hide">
+    <h2>Register</h2>
+    <form id="registerForm" method="post">
+      <div class="register-user-box">
+        <input type="text" name="Username" id="Username">
+        <label>Username</label>
+      </div>
+      <div class="register-user-box">
+        <input type="password" id="pass_reg" name="Password">
+        <label>Password</label>
+        <!-- <span toggle="#password-field" class="regEyeloc fa fa-fw fa-eye field_icon toggle-password"></span> -->
+      </div>
+      <div class="register-user-box">
+        <input type="text" name="Fullname">
+        <label>Full name</label>
+      </div>
+      <div class="register-user-box">
+        <input type="email" name="Email"> 
+        <label>Email</label>
+      </div>
+      <div class="register-user-box">
+        <input type="date" name="DateOfBirth">
+        <label>Date of Birth</label>
+      </div>
+      <div id="register_btn_area">
+        <input id="subRegister" type="submit"  value="Done"></input>
+      </div >
+    </form>
 </div>
 
 
