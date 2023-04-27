@@ -18,9 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="./js/jquery-3.4.1.slim.min.js"></script>
 
-    <script src="./js/screens/login.js"></script>
 
-    <script src="./js/screens/settings.js"></script>
 
 
     <script src="./js/db.js"></script>
@@ -150,23 +148,24 @@
 <div id="settings-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
     <div class="w3-container">
             <div class="setting-box">
-            <h2>Setting</h2>
+            <h2>Setting</h2>.
+            <h1>You can change the game duration and the shoot button</h1>
             <form id="settingForm" method="post">
         
                 <div class="user-setting-box">
                     <label>Game Time: <span id="gameTimeDisplay" style="color: #40f521;">120</span><span style="color: #40f521;"> seconds</span></label>
-                    </br>
+                    <!-- </br> -->
                     </br>
                     <input type="range" name="gameTime" min="120" max="1000" step="1" value="2">
                 </div>
 
                 <div class="user-setting-box">
-                <input type="text" name="shootKey" required="" autocomplete="off">
+                <input type="text" name="shootKey" required="" autocomplete="off" value="SPACE">
                 <label>Shooting key</label>
                 </div>
 
                 <div>
-                    <button id="play_btn_area" onclick="welcomePage_show()"><span>Play</span></button>
+                    <button id="play_btn_area" onclick="playButtonClicked()"><span>Play</span></button>
                 </div>
             </form>
             </div>
@@ -204,6 +203,8 @@
 
 <script src="js/style.js"></script>
 <script src="./js/screens/register.js"></script>
+<script src="./js/screens/login.js"></script>
+<script src="./js/screens/settings.js"></script>
 
 <!-- <script src="js/pages/settings.js"></script> -->
 
