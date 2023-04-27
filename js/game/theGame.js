@@ -35,6 +35,7 @@ let isWinner = false;
 let lifes = 3;
 
 
+
 // To add a score:
 // scores.addScore(100);
 
@@ -42,6 +43,8 @@ let lifes = 3;
 // const allScores = scores.getScores();
 
 function game() {
+  let rankNumber = 1;
+
     checkGameOver();
     // ctx.fillStyle = "white";
     // ctx.font = "20px Arial";
@@ -73,6 +76,7 @@ function displayGameOver() {
 
   function checkGameOver() {
     if (isGameOver) {
+      
       return;
     }
     if (enemyBulletController.collides(player)) {
