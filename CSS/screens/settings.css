@@ -7,8 +7,10 @@
         border-radius: 10px;
         top: 50%;
         left: 50%;
-        width: 390px;
-        padding: 35px;
+        width: 80vh;
+        height: 80vh;
+
+        padding: 5vh;
     }
     
     .setting-box h2 {
@@ -22,8 +24,6 @@
 
     .setting-box h1 {
         font-family: 'Permanent Marker', cursive;
-        top: 0;
-        bottom: 0;
         padding-top: 0;
         color: #fff;
         font-size: 2.5vh;
@@ -37,7 +37,7 @@
         width: 100%;
         padding: 10px 0;
         color: #fff;
-        margin-bottom: 30px;
+        margin-bottom: 5vh;
         border: none;
         border-bottom: 1px solid #fff;
         outline: none;
@@ -56,17 +56,6 @@
         font-size: 2.5vh;
     }
 
-    .setting-box .user-setting-box p {
-        position: absolute;
-        top:0;
-        left: 0;
-        padding: 15px 0;
-        color: #fff;
-        pointer-events: none;
-        transition: .5s;
-        font-size: 2vh;
-    }
-
     .setting-box .user-setting-box input:focus ~ label,
     .setting-box .user-setting-box input:valid ~ label {
         top: -20px;
@@ -75,18 +64,29 @@
         font-size: 2vh;
     }
       
-    
+    .setting-box .user-setting-box #gameTime {
+        width: 100%;
+        padding: 10px 0;
+        color: #fff;
+        margin-bottom: 5vh;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline: none;
+        background: transparent;
+        font-size: 2.5vh;
+      }
+
     .setting-box button {
         position: relative;
         display: inline-block;
-        padding: 10px 20px;
+        /* padding: 4vh 10vh; */
         color: white;
-        font-size: 16px;
+        font-size: 3vh;
         text-transform: uppercase;
         overflow: hidden;
         transition: .5s;
-        margin-top: 40px;
-        letter-spacing: 4px;
+        margin-top: 10vh;
+        letter-spacing: 0.5vh;
         background: transparent;
         border: none;
         cursor: pointer;
