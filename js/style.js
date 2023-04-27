@@ -5,7 +5,6 @@ function setBackgroundImage(src) {
     body.style.backgroundSize = "cover";
     body.style.backgroundRepeat = "no-repeat";
     body.style.backgroundPosition = "center";
-
 }
 
 // ----------------------------------- Welcome page -----------------------------------
