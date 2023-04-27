@@ -21,6 +21,7 @@ function addToDB(userID, pass, fname, mail, birthDate){
         dateOfBirth: birthDate
     }
     db.push(newUser);
+    console.log(newUser);
 
 }
 

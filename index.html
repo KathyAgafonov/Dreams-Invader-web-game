@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!-- <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+    <script src="./js/jquery-3.4.1.slim.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script> -->
+    
+
 
     <!-- CSS files -->
     <link rel="stylesheet" href="./CSS/screens/screen-style.css"/>
     <link rel="stylesheet" href="./CSS/screens/login.css"/>
     <link rel="stylesheet" href="./CSS/screens/register.css"/>
     <link rel="stylesheet" href="./CSS/screens/settings.css"/>
-
-
-
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-
-
-
-    <script src="./js/db.js"></script>
-
 
 
     <title>Document</title>
@@ -58,7 +55,7 @@
         <p class="game-description w3-text-white">Help Rick save Morty from the dreams invader Scary Terry</p>
         <p class="game-credits w3-text-white">~ Insperation from S1 EP2</p>
 
-    <button class="w3-button w3-white w3-margin-top w3-round-large w3-border w3-border-black" onclick="loginPage_show()" style="height: 5vh; width: 8vw; font-size: 2vh;">Login</button>
+    <button class="w3-button w3-white w3-margin-top w3-round-large w3-border w3-border-black" onclick="showLoginScreen()" style="height: 5vh; width: 8vw; font-size: 2vh;">Login</button>
     <button class="w3-button w3-black w3-margin-top w3-round-large" onclick="registerPage_show()" style="height: 5vh; width: 8vw; font-size: 2vh;">Register</button>
 </div>
 
@@ -103,34 +100,23 @@
 
 <!---------------------------------------- register div ---------------------------------------->
 <div id="register-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
-    <div class="w3-container">
         <div class="register-box">
             <h2>Register</h2>
             <form id="registerForm" method="post">
 
                 <div class="user-box">
-                    <input type="text" name="Username" required="">
+                    <input type="text" name="Username" id="Username" required="">
                     <label>Username</label>
                 </div>
 
                 <div class="user-box">
-                    <input type="text" name="Password" required="">
+                    <input type="password" id="pass_reg" name="Password" required="">
                     <label>Password</label>
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="confirmPassword" required="">
-                    <label>Confirm Password</label>
-                  </div>
-
-                  <div class="user-box">
-                    <input type="text" name="Firstname" required="">
+                    <input type="text" name="Fullname" required="">
                     <label>First name</label>
-                  </div>
-
-                  <div class="user-box">
-                    <input type="text" name="Lastname" required="">
-                    <label>Last name</label>
                   </div>
 
                   <div class="user-box">
@@ -142,15 +128,17 @@
                     <input type="date" name="DateOfBirth" required="">
                     <label>Date of Birth</label>
                   </div>
-
-                  <div>
-                    <button id="register_btn_area" onclick="welcomePage_show()"><span>Register</span></button>
-                </div>
+				  <a id="register_btn_area">
+					<span></span>
+					<span></span>  
+					<span></span>
+					<span></span>
+					<input id="subRegister" type="submit"  value="Done"></input>
+				</a>
 
             </form>
 
         </div>
-    </div>
 </div>
 
 
@@ -210,20 +198,20 @@
         document.getElementById("game").style.display = "block";
     }
 </script>
+    
+<script src="./js/style.js"></script>
+<script src="./js/screens/register.js"></script>
+<script src="./js/jquery.validate.js"></script>
+<script src="./js/registerValidation.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
-
-
-<script src="js/style.js"></script>
-<!-- <script src="./js/screens/register.js"></script> -->
 <script src="./js/screens/login.js"></script>
 <script src="./js/screens/settings.js"></script>
 
+<script src="./js/pages/settings.js"></script>
 
-<!-- <script src="js/pages/settings.js"></script> -->
+<script type="module" src="./js/game/theGame.js"></script>
 
-<!-- <script type="module" src="js/game/theGame.js"></script> -->
 
+<script src="./js/db.js"></script>
 </body>
 </html>
