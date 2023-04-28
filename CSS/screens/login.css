@@ -1,3 +1,4 @@
+
 .login-box {
   position: absolute;
   margin-top: 10vh;
@@ -37,7 +38,7 @@
     top:0;
     left: 0;
     padding: 10px 0;
-    font-size: 16px;
+    font-size: 2.5vh;
     color: #fff;
     pointer-events: none;
     transition: .5s;
