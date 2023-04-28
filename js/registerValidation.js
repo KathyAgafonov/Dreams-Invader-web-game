@@ -1,5 +1,4 @@
-jQuery(function() {
-    console.log('registration')
+$().ready(function() {
     $("#registerForm").validate({
         rules: {
             Username: "required",

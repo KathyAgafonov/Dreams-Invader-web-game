@@ -1,8 +1,8 @@
 
 
 $(document).ready(function(){
-    $("#register_button").click(showRegisterScreen);
-    $("#register_menu").click(showRegisterScreen);
+    // $("#register_button").click(showRegisterScreen);
+    // $("#register_menu").click(showRegisterScreen);
 
     $(document).on('click', '.toggle-password', function() {
 
@@ -25,7 +25,6 @@ function showRegisterScreen(){
 
 function registerSubmit(){
     var $inputs = $('#registerForm :input');
-    console.log(inputs)
     var values = {};
     $inputs.each(function() {
         values[this.name] = $(this).val();
