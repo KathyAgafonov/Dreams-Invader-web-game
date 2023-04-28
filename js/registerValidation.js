@@ -4,9 +4,15 @@ $().ready(function() {
             Username: "required",
             Password: { 
                 required: true,
-                minlength: 6,
+                minlength: 8,
                 pwcheck: true
             },
+            Repeat_Password: {
+                required: true,
+                minlength: 8,
+                pwcheck: true,
+                passwordMatch: true // Add the new rule here
+              },
             Fullname: {
                 required: true,
                 fncheck: true
@@ -22,7 +28,7 @@ $().ready(function() {
             Username: "Missing",
             Password: {
                 required: "Missing",
-                minlength: "Minimum 6 characters",
+                minlength: "Minimum 8 characters",
                 pwcheck: "Must contain letters and numbers"
             },
             Fullname: {
@@ -42,11 +48,15 @@ $().ready(function() {
           wrapper: 'span',
 
           submitHandler: function(event){
+            var password = $("#pass_reg").val();
             registerSubmit();
         }
 
     });
 });
+$.validator.addMethod("passwordMatch", function(value, element) {
+    return value == $("#pass_reg").val();
+  }, "Passwords do not match");
 
 $.validator.addMethod("pwcheck",function(value) {
     return /^[A-z0-9\d=!\-@._*]*$/.test(value) && /[A-z]/.test(value) && /\d/.test(value);

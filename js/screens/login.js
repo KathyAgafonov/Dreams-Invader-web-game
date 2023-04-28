@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    // $("#login").hide();
     $("#login_button").click(showLoginScreen);
     $("#login_menu").click(showLoginScreen);
     $("#subLogin").click(loginSubmit);

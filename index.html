@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,14 @@
     <script src="./js/jquery-3.4.1.slim.min.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script> -->
-    
+
 
 
     <!-- CSS files -->
-    <link rel="stylesheet" href="./CSS/screens/screen-style.css"/>
-    <link rel="stylesheet" href="./CSS/screens/login.css"/>
-    <link rel="stylesheet" href="./CSS/screens/register.css"/>
-    <link rel="stylesheet" href="./CSS/screens/settings.css"/>
+    <link rel="stylesheet" href="./CSS/screens/screen-style.css" />
+    <link rel="stylesheet" href="./CSS/screens/login.css" />
+    <link rel="stylesheet" href="./CSS/screens/register.css" />
+    <link rel="stylesheet" href="./CSS/screens/settings.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -29,77 +30,83 @@
 
 <body>
 
-<!---------------------------------------- menu ---------------------------------------->
-<div class="w3-top">
-    <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="menuNavBar">
-        <a class="w3-bar-item w3-button" onclick="switchPage('welcome-page', backgroundWelcomePagePath)">Welcome</a>
-        <a id="about" class="w3-bar-item w3-button" onclick="aboutPopup_show()">About</a>
-        <a id="settings" class="w3-bar-item w3-button" onclick="switchPage('settings-page', null)">settings</a>
-        <a id="login" class="w3-bar-item w3-button" onclick="switchPage('login-page', backgroundOtherPagesPath)" >Login</a>
-        <a id="register" class="w3-bar-item w3-button" onclick="switchPage('register-page', backgroundOtherPagesPath)">Register</a>
-        <!-- <a id="play" class="w3-bar-item w3-button" onclick="game_show()">Play</a> -->
-        <a id="play" class="w3-bar-item w3-button" onclick="switchPage('game-page', backgroundWelcomePagePath)">Play</a>
+    <!---------------------------------------- menu ---------------------------------------->
+    <div class="w3-top">
+        <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="menuNavBar">
+            <a class="w3-bar-item w3-button" onclick="switchPage('welcome-page', backgroundWelcomePagePath)">Welcome</a>
+            <a id="about" class="w3-bar-item w3-button" onclick="aboutPopup_show()">About</a>
+            <a id="settings" class="w3-bar-item w3-button" onclick="switchPage('settings-page', null)">settings</a>
+            <a id="login" class="w3-bar-item w3-button"
+                onclick="switchPage('login-page', backgroundOtherPagesPath)">Login</a>
+            <a id="register" class="w3-bar-item w3-button"
+                onclick="switchPage('register-page', backgroundOtherPagesPath)">Register</a>
+            <!-- <a id="play" class="w3-bar-item w3-button" onclick="game_show()">Play</a> -->
+            <a id="play" class="w3-bar-item w3-button"
+                onclick="switchPage('game-page', backgroundWelcomePagePath)">Play</a>
 
 
-        <!-- <a id="hi" class="w3-bar-item w3" style="float: right; padding-right: 30px;"><span>Hi </span><span id="loged_in_uname">guest</span></a> -->
-        <div class="w3-bar-item w3-button" onclick="logout()" style="display: none;" id="nav_logout" >LogOut</div>
-        <div class="w3-bar-item w3" style="float: right; padding-right: 30px; display: none;" id="onlineUserText" >Hi: </div>
+            <!-- <a id="hi" class="w3-bar-item w3" style="float: right; padding-right: 30px;"><span>Hi </span><span id="loged_in_uname">guest</span></a> -->
+            <div class="w3-bar-item w3-button" onclick="logout()" style="display: none;" id="nav_logout">LogOut</div>
+            <div class="w3-bar-item w3" style="float: right; padding-right: 30px; display: none;" id="onlineUserText">
+                Hi: </div>
+        </div>
     </div>
-</div>
 
 
-<!---------------------------------------- welcome div ---------------------------------------->
-<div id="welcome-page" class="w3-container page">
+    <!---------------------------------------- welcome div ---------------------------------------->
+    <div id="welcome-page" class="w3-container page">
         <h3 class="small-game-title w3-text-white">Scary Game</h3>
         <h1 class="game-subtitle w3-text-white">Dreams Invader</h1>
         <p class="game-description w3-text-white">Help Rick save Morty from the dreams invader Scary Terry</p>
         <p class="game-credits w3-text-white">~ Insperation from S1 EP2</p>
 
-    <button class="w3-button w3-white w3-margin-top w3-round-large w3-border w3-border-black" onclick="showLoginScreen()" style="height: 5vh; width: 8vw; font-size: 2vh;">Login</button>
-    <button class="w3-button w3-black w3-margin-top w3-round-large" onclick="registerPage_show()" style="height: 5vh; width: 8vw; font-size: 2vh;">Register</button>
-</div>
+        <button class="w3-button w3-white w3-margin-top w3-round-large w3-border w3-border-black"
+            onclick="showLoginScreen()" style="height: 5vh; width: 8vw; font-size: 2vh;">Login</button>
+        <button class="w3-button w3-black w3-margin-top w3-round-large" onclick="registerPage_show()"
+            style="height: 5vh; width: 8vw; font-size: 2vh;">Register</button>
+    </div>
 
 
-<!---------------------------------------- about popup div ---------------------------------------->
-<div id="about-popup" class="w3-modal" style="display:none">
-    <div class="w3-modal-content w3-animate-top w3-card-4" style="max-width: 500px; background-color: rgba(255, 255, 255, 0.95);">
-        <header class="w3-container w3-light-grey">
-            <span onclick="aboutPopup_close()" class="w3-button w3-display-topright">&times;</span>
-            <h3>About</h3>
-        </header>
-        <div class="w3-container">
-            <p>Insert your content here.</p>
+    <!---------------------------------------- about popup div ---------------------------------------->
+    <div id="about-popup" class="w3-modal" style="display:none">
+        <div class="w3-modal-content w3-animate-top w3-card-4"
+            style="max-width: 500px; background-color: rgba(255, 255, 255, 0.95);">
+            <header class="w3-container w3-light-grey">
+                <span onclick="aboutPopup_close()" class="w3-button w3-display-topright">&times;</span>
+                <h3>About</h3>
+            </header>
+            <div class="w3-container">
+                <p>Insert your content here.</p>
+            </div>
         </div>
     </div>
-</div>
 
-<!---------------------------------------- login div ---------------------------------------->
-<div id="login-page" class="login-box w3-container w3-half w3-padding-64 page hide">
-    <div id="login" class="login-box">
-        <h2>Login</h2>
-        <form id="loginForm">
-          <div class="user-box">
-            <input type="text" name="Username" required="">
-            <label>Username</label>
-          </div>
-          <div class="user-box">
-            <input type="password" name="Password" required="">
-            <label>Password</label>
-          </div>
-          <a href="#">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <label id="subLogin">Login</label>
-          </a>
-        </form>
+    <!---------------------------------------- login div ---------------------------------------->
+    <div id="login-page" class="login-box w3-container w3-half w3-padding-64 page hide">
+        <div id="login" class="login-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+              <div class="user-box">
+                <input type="text" name="Username" required="">
+                <label>Username</label>
+              </div>
+              <div class="user-box">
+                <input type="password" name="Password" required="">
+                <label>Password</label>
+              </div>
+              <a href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <label id="subLogin">Login</label>
+              </a>
+            </form>
+        </div>
     </div>
-</div>
 
-
-<!---------------------------------------- register div ---------------------------------------->
-<div id="register-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
+    <!---------------------------------------- register div ---------------------------------------->
+    <div id="register-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
         <div id="register" class="register-box">
             <h2>Register</h2>
             <form id="registerForm" method="post">
@@ -112,106 +119,113 @@
                 <div class="user-box">
                     <input type="password" id="pass_reg" name="Password" required="">
                     <label>Password</label>
-                    <!-- <span toggle="#password-field" class="regEyeloc fa fa-fw fa-eye field_icon toggle-password"></span> -->
+                </div>
 
-                  </div>
+                <div class="user-box">
+                    <input type="password" id="pass_reg" name="Repeat_Password" required="">
+                    <label>Repeat password</label>
+                </div>
 
-                  <div class="user-box">
+                <div class="user-box">
                     <input type="text" name="Fullname" required="">
                     <label>First name</label>
-                  </div>
+                </div>
 
-                  <div class="user-box">
-                    <input type="email" name="Email" required=""> 
+                <div class="user-box">
+                    <input type="email" name="Email" required="">
                     <label>Email</label>
-                  </div>
+                </div>
 
-                  <label>Date of Birth</label>
-                  <div class="user-box">
+                <label class="Birthday">Birthday</label>
+                <div class="user-box">
                     <input type="date" name="DateOfBirth" required="">
-                  </div>
-                  <a id="register_btn_area">
-					<span></span>
-					<span></span>  
-					<span></span>
-					<span></span>
-					<input id="subRegister" type="submit"  value="Done"></input>
-				</a>
+                </div>
+                <a id="register_btn_area">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <input id="subRegister" type="submit" value="Done"></input>
+                </a>
 
             </form>
 
         </div>
-</div>
+    </div>
 
 
 
-<!---------------------------------------- settings div ---------------------------------------->
-<div id="settings-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
-    <div class="w3-container">
+    <!---------------------------------------- settings div ---------------------------------------->
+    <div id="settings-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
+        <div class="w3-container">
             <div class="setting-box">
-            <h2>Setting</h2>.
-            <h1>You can change the game duration and the shoot button</h1>
-            <form id="settingForm" method="post">
-        
-                <div class="user-setting-box">
-                    <label>Game Time: <span id="gameTimeDisplay" style="color: #40f521;">120</span><span style="color: #40f521;"> seconds</span></label>
-                    </br>
-                    </br>
-                    <input type="range" id="gameTime" name="gameTime" min="120" max="1000" step="1" value="2">
-                </div>
+                <h2>Setting</h2>.
+                <h1>You can change the game duration and the shoot button</h1>
+                <form id="settingForm" method="post">
 
-                <div class="user-setting-box">
-                <input type="text" name="shootKey" required="" autocomplete="off" value="Space">
-                <label>Shooting key</label>
-                </div>
+                    <div class="user-setting-box">
+                        <label>Game Time: <span id="gameTimeDisplay" style="color: #40f521;">120</span><span
+                                style="color: #40f521;"> seconds</span></label>
+                        </br>
+                        </br>
+                        <input type="range" id="gameTime" name="gameTime" min="120" max="1000" step="1" value="2">
+                    </div>
 
-                <div>
-                    <button id="play_btn_area" onclick="welcomePage_show()"><span>Play</span></button>
-                </div>
-            </form>
+                    <div class="user-setting-box">
+                        <input type="text" name="shootKey" required="" autocomplete="off" value="Space">
+                        <label>Shooting key</label>
+                    </div>
+
+                    <div>
+                        <button id="play_btn_area" onclick="switchPage('welcome-page', backgroundWelcomePagePath)"><span>Play</span></button>
+                    </div>
+                </form>
             </div>
+        </div>
     </div>
-</div>
 
 
-<!---------------------------------------- the game div ---------------------------------------->
-<div id="game-page" class="w3-container page hide">
-    <p style="color: white; background: transparent; font-size: 2.5vh;"><span>Score:</span> <span id="scoreElement">0</span></p>
-    <canvas id="game" width="800" height="600" style="display: block;"></canvas>
-    <div id="scoreTable"></div>
-</div>
-
-
-
-<!---------------------------------------- footer div ---------------------------------------->
-<div class="w3-bottom">
-    <div class="w3-bar w3-black w3-opacity" id="footer">
-        <a class="w3-bar-item" style="font-size: 2.5vh">
-            Kathy Agafonov & Netanel Krotovich 2023 &copy; Contact us: kathyagafonov@gmail.com , krotonet@post.bgu.ac.il
-        </a>
+    <!---------------------------------------- the game div ---------------------------------------->
+    <div id="game-page" class="w3-container page hide">
+        <p style="color: white; background: transparent; font-size: 2.5vh;"><span>Score:</span> <span
+                id="scoreElement">0</span></p>
+        <canvas id="game" width="800" height="600" style="display: block;"></canvas>
+        <div id="scoreTable"></div>
     </div>
-</div>
 
 
-<script>
-    let startGame = false;
-    // set startGame to true when the game should start
-    if (startGame) {
-        document.getElementById("game").style.display = "block";
-    }
-</script>
-    
-<script src="./js/style.js"></script>
-<script src="./js/screens/register.js"></script>
-<script src="./js/jquery.validate.js"></script>
-<script src="./js/registerValidation.js"></script>
 
-<script src="./js/screens/login.js"></script>
-<script src="./js/screens/settings.js"></script>
-
-<script type="module" src="./js/game/theGame.js"></script>
+    <!---------------------------------------- footer div ---------------------------------------->
+    <div class="w3-bottom">
+        <div class="w3-bar w3-black w3-opacity" id="footer">
+            <a class="w3-bar-item" style="font-size: 2.5vh">
+                Kathy Agafonov & Netanel Krotovich 2023 &copy; Contact us: kathyagafonov@gmail.com ,
+                krotonet@post.bgu.ac.il
+            </a>
+        </div>
+    </div>
 
 
-<script src="./js/db.js"></script>
+    <script>
+        let startGame = false;
+        // set startGame to true when the game should start
+        if (startGame) {
+            document.getElementById("game").style.display = "block";
+        }
+    </script>
+
+    <script src="./js/style.js"></script>
+    <script src="./js/screens/register.js"></script>
+    <script src="./js/jquery.validate.js"></script>
+    <script src="./js/registerValidation.js"></script>
+
+    <script src="./js/screens/login.js"></script>
+    <script src="./js/screens/settings.js"></script>
+
+    <script type="module" src="./js/game/theGame.js"></script>
+
+
+    <script src="./js/db.js"></script>
 </body>
+
 </html>
