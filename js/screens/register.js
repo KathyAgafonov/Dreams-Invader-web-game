@@ -31,5 +31,6 @@ function registerSubmit(){
     });
 
     addToDB(values["Username"],values["Password"],values["Fullname"],values["Email"],values["DateOfBirth"]);
-    showLoginScreen();
+    document.getElementById("registerForm").reset();
+    switchPage('login-page', backgroundOtherPagesPath);
 }

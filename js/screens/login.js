@@ -33,6 +33,7 @@ function loginSubmit(){
         $("#register_menu").hide();
         // $("#login_menu").hide();
         $("#nav_logout").show();
+        document.getElementById("loginForm").reset();
         // onlineUserText.show();
     }
     else {
@@ -45,4 +46,14 @@ function showUsername(){
     $("#onlineUserText").append(onlineUser);
 }
 
+
+function logout() {
+    console.log(onlineUser);
+    onlineUser = null;
+    //style logout button as login
+    $("#onlineUserText").hide();
+    $("#nav_logout").hide();
+    $("#onlineUserText").text("Hi: ");
+    switchPage('welcome-page', backgroundWelcomePagePath);
+}
 
