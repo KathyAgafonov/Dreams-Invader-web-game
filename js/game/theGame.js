@@ -39,7 +39,8 @@ let isWinner;
 let lifes;
 let gameStartTime;
 let score;
-
+let scores;
+let shown;
 
 function newGame() {
   playerBulletController = new BulletController(canvas, "./src/images/game/pickle.png");
@@ -58,11 +59,26 @@ function newGame() {
   isWinner = false;
 
   lifes = 3;
-  
+
   gameStartTime = new Date().getTime();
 
   score = 0;
+  if (scores == null) {
+    initScoresArray();
+  }
+  shown = false;
 }
+
+function initScoresArray(){
+  scores = []
+}
+
+const logoutButton = document.getElementById("nav_logout");
+const playButton = document.getElementById("play");
+
+logoutButton.addEventListener("click", initScoresArray);
+playButton.addEventListener("click", initScoresArray);
+
 
 function play() {
   // Calculate time remaining
@@ -71,12 +87,11 @@ function play() {
   const minutesRemaining = Math.floor(timeRemaining / 60);
   const secondsRemaining = timeRemaining % 60;
 
-
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   checkGameOver();
-  
 
-  if(!isGameOver) {
+
+  if (!isGameOver) {
     enemyController.draw(ctx); // call the draw() method of EnemyController to draw the enemies on the canvas
     enemyController.updateEnemies(); // update the position of the enemies
     player.draw(ctx);
@@ -87,8 +102,8 @@ function play() {
     ctx.fillStyle = "white";
     ctx.font = "2.5vh Permanent Marker";
 
-    ctx.fillText(`Score: ${score}`, 20, 40);
-    ctx.fillText(`Time Left: ${minutesRemaining}:${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`, 20, 70);
+    ctx.fillText(`Score: ${score}`, 5, 30);
+    ctx.fillText(`Time Left: ${minutesRemaining}:${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`, 200, 30);
 
   }
 
@@ -102,38 +117,66 @@ function displayGameOver() {
     ctx.fillStyle = "white";
     ctx.font = "50px David";
     ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+    if (!shown) {
+      scores.push(score);
+      showScores();
+      shown = true;
+    }
   }
 }
 
 function checkGameOver() {
+  $("#life-img").attr("src", "/src/images/game/" + lifes + "life.png");
+
   if (enemyBulletController.collides(player)) {
     player.hit()
     lifes--;
-    $("#life-img").attr("src", "/src/images/game/" + lifes + "life.png");
-
-    console.log("you shoot me!")
   }
-
-  // if (enemyController.collides(player)) {
-  //   player.hit()
-  //   lifes--;
-  //   console.log("Im dead!")
-  // }
 
   else if (enemyController.enemyRows.length === 0) {
     isWinner = true;
     isGameOver = true;
   }
-  
+
   if (lifes === 0 || isGameOver) {
     isGameOver = true;
-    gameOver();
+    // gameOver();
     displayGameOver();
+    endGame();
   }
-
-
 }
+function showScores() {
+  // Get a reference to the table body
+  var tableBody = $('#score-table tbody');
 
+  // Clear the table body first
+  tableBody.empty();
+
+  // Sort scores by score in descending order
+  scores.sort(function (a, b) {
+    return b.score - a.score;
+  });
+
+  // Iterate over the scores array and add rows to the table
+  scores.forEach(function (score, index) {
+    // Create a new table row
+    var newRow = $('<tr>');
+
+    // Create table cells and set their text content
+    var rankCell = $('<td>').text(index + 1);
+    var scoreCell = $('<td>').text(score);
+
+    // Add the cells to the row
+    newRow.append(rankCell);
+    newRow.append(scoreCell);
+
+    // Add the row to the table body
+    tableBody.append(newRow);
+  });
+
+  // Show the table
+  $('#score-table').show();
+}
 
 
 // ----------------------------- Pop up with a button for another round when the game is over -----------------------------
@@ -142,75 +185,8 @@ function gameOver() {
   if (isGameOver) {
     return;
   }
-
   isGameOver = true;
-
-  // Get the current date and time
-  const now = new Date();
-  const date = now.toLocaleDateString();
-  const time = now.toLocaleTimeString();
-  
-  // Add the score and date to the record table
-  const recordTable = $("#recordTable-table tbody");
-  const newRow = $("<tr>");
-  newRow.append($("<td>").text(rankNumber));
-  newRow.append($("<td>").text(`${date} ${time}`));
-  newRow.append($("<td>").text(enemyController.score));
-  recordTable.append(newRow);
-  
-  // Increment the rank number for the next game
-  rankNumber++;
-    
-  // Create a new HTML element for the pop-up window
-  const popup = document.createElement("div");
-  popup.classList.add("popup");
-
-  // Add the player's score and the record table to the pop-up window
-  const scoreText = document.createElement("p");
-  scoreText.textContent = `Your Score: ${enemyController.score}`;
-  popup.appendChild(scoreText);
-  
-  // Add the record table to the pop-up window
-  const table = document.createElement("table");
-  table.id = "recordTable-popup";
-  const tableHead = document.createElement("thead");
-  const tableHeadRow = document.createElement("tr");
-  tableHeadRow.innerHTML = "<th>Rank</th><th>Date</th><th>Score</th>";
-  tableHead.appendChild(tableHeadRow);
-  const tableBody = document.createElement("tbody");
-  tableBody.innerHTML = recordTable.html();
-  table.appendChild(tableHead);
-  table.appendChild(tableBody);
-  popup.appendChild(table);
-
-  // Add a button to start a new round
-  const anotherRoundButton = document.createElement("button");
-  anotherRoundButton.textContent = "Another Round";
-  anotherRoundButton.addEventListener("click", () => {
-    popup.remove();
-    newGame();
-    startGame();
-  });
-  popup.appendChild(anotherRoundButton);
-
-  // Save a reference to the popup element
-  const popupContainer = document.body.appendChild(popup);
-
-  // Add an event listener to the menu items to close the popup when a different menu item is clicked
-  const menuItems = document.querySelectorAll("#menuNavBar a");
-  for (let i = 0; i < menuItems.length; i++) {
-    menuItems[i].addEventListener("click", () => {
-      popupContainer.remove();
-    });
-  }
-
-  // Add an event listener to the window object to close the popup when the window loses focus
-  window.addEventListener("blur", () => {
-    popupContainer.remove();
-  });
 }
-
-
 
 
 // ----------------------------- Mute/Unmute the sound in the game -----------------------------
@@ -237,34 +213,6 @@ $('#mute-button').click(function () {
 });
 
 
-
-// $(document).ready(function() {
-//   $('#play').on('click', function() {
-//     // Start the game here
-//     // For example, you can call a function that starts the game:
-//     startGame();
-//   });
-// });
-
-
-
-// function startGame() {
-//   // Code to start the game goes here
-//   // For example:
-//   backgroundSound.play();
-
-//   setInterval(play, 10);
-
-//   console.log('Game started!');
-// }
-
-// function endGame() {
-//   console.log('Game ends!');
-//   backgroundSound.pause
-//   clearInterval(intervalId);
-// }
-
-
 $(window).on('beforeunload', function () {
   return 'Are you sure you want to leave?';
 });
@@ -272,14 +220,22 @@ $(window).on('beforeunload', function () {
 $(document).ready(function () {
   $('#play').on('click', function () {
     // Start the game here
+    if(gamePlayed){
+      endGame();
+      gamePlayed = false;
+    }
     newGame();
     startGame();
+    gamePlayed = true;
   });
 });
+
+let gamePlayed = false;
 
 function startGame() {
   // Code to start the game goes here
   // For example:
+  backgroundSound.currentTime = 0;
   backgroundSound.play();
   intervalId = setInterval(play, 10);
 
@@ -288,9 +244,9 @@ function startGame() {
 
 function endGame() {
   console.log('Game ends!');
-  backgroundSound.pause();
+  backgroundSound.muted = true;
   clearInterval(intervalId);
-  console.log('Game ends!');
+  // console.log('Game ends!');
 
   // Reset all game variables here
 }

@@ -183,13 +183,6 @@
                     <label>Game Time</label>
                 </div>
                 <div>
-                    <!-- <a id="random_btn_area">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <label id="randomSetting">Random</label>
-                    </a> -->
                     </br>
                     <div id="play-btn-wrapper" style="position: absolute;">
                         <a id="play_btn_area">
@@ -221,38 +214,35 @@
                     top: 20px;
                     right: 20px; width: 10%;">
             <!-- <button id="muteButton"><img src="volume.png"></button> -->
-
         </div>
-
-        <div id="scoreBoard" align="center">
-            <form id="scoreBoard-content">
-                <h2>Score board</h2>
-                <table id="scoreBoard-table">
-                    <thead>
-                        <tr>
-                            <td colspan="3"><b></b></td>
-                        </tr>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Date</th>
-                            <th>Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <p style="font-size: 18px;">For New Game Click the Play button on main menu</p>
-            </form>
+        <div>
+            <table id="score-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added dynamically using jQuery -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <button class="close-btn" onclick="$('#score-table').hide();">X</button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
-
     </div>
 
     <!---------------------------------------- footer div ---------------------------------------->
     <div class="w3-bottom">
-        <div class="w3-bar w3-black w3-opacity" id="footer"">
+        <div class="w3-bar w3-black w3-opacity" id="footer">
             <a class=" w3-bar-item" style="font-size: 2.5vh">
-            Kathy Agafonov & Netanel Krotovich 2023 &copy; Contact us: kathyagafonov@gmail.com ,
-            krotonet@post.bgu.ac.il
+                Kathy Agafonov & Netanel Krotovich 2023 &copy; Contact us: kathyagafonov@gmail.com ,
+                krotonet@post.bgu.ac.il
             </a>
         </div>
     </div>

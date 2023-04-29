@@ -21,20 +21,23 @@ export default class Player {
         this.bulletController = bulletController;
         
         const screenHeight = window.innerHeight;
-        const imageHeight = screenHeight * 0.09;
+        // const imageHeight = screenHeight * 0.09;
         
         this.image = new Image();
         this.image.src = backRickImagePath;
-        this.image.onload = () => {
-            this.width = this.image.width * (imageHeight / this.image.height) + 10;
-            this.height = imageHeight;
-        }
+        // this.image.onload = () => {
+        //     this.width = screenHeight * 0.09;
+        //     this.height = screenHeight * 0.09;
+        // }
+
+        this.image.width = screenHeight * 0.09;
+        this.image.height = screenHeight * 0.09;
 
         this.width = this.image.width;
         this.height = this.image.height;
 
         this.x = this.canvas.width / 2;
-        this.y = this.canvas.height - this.height * 3.5; // bottom of the screen
+        this.y = this.canvas.height - this.height + 100; // bottom of the screen
 
         this.playerSoundDeath = new Audio('./src/audio/fuck_you_player_sound.mp3');
         this.playerSoundDeath.volume = 0.2;

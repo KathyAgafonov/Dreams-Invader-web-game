@@ -7,7 +7,12 @@ export default class Enemy {
         const imageHeight = screenHeight * 0.09;
         this.image = new Image();
         this.image.src = `src/images/game/little_scary_terry_${imageNum}.png`;
-        this.image.width = this.image.width * (imageHeight / this.image.height);
+
+        // this.image.onload = () => {
+        //     this.width = this.image.width * (imageHeight / this.image.height) + 10;
+        //     this.height = imageHeight;
+        // }
+        this.image.width = this.image.width * (imageHeight / this.image.height) + 10;
         this.image.height = imageHeight;
 
         this.width = this.image.width;
