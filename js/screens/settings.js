@@ -1,34 +1,11 @@
 var keyCode_set;
 
-// $(document).ready(function() {
-//     // Hide the settings-page div by default
-//     $('#settings-page').hide();
-    
-//     // Add click event listener to the #subLogin button
-//     $('#subLogin').click(function() {
-//       // Display the settings-page div
-//       $('#settings-page').show();
-//     });
-//   });
 $(document).ready(function () {
-    $("#random_btn_area").click(randomSetting);
-    $("#upArrow").keydown(function (event) {
-        keydownpressed(event, "#upArrow");
+    $("#shootKey").keydown(function (event) {
+        keydownpressed(event, "#shootKey");
     }
     );
-    $("#downArrow").keydown(function (event) {
-        keydownpressed(event, "#downArrow");
-    }
-    );
-    $("#leftArrow").keydown(function (event) {
-        keydownpressed(event, "#leftArrow");
-    }
-    );
-    $("#rightArrow").keydown(function (event) {
-        keydownpressed(event, "#rightArrow");
-    }
-    );
-    keyCode_set = { "#upArrow": 38, "#downArrow": 40, "#leftArrow": 37, "#rightArrow": 39 };
+    keyCode_set = { "#shootKey": 38 };
 });
 
 function settingSubmit() {
@@ -38,35 +15,24 @@ function settingSubmit() {
         values[this.name] = $(this).val();
     });
     // reciveSettings(keyCode_set["#upArrow"], keyCode_set["#downArrow"], keyCode_set["#leftArrow"], keyCode_set["#rightArrow"],values["gameTime"]);
-
+    
     console.log(keyCode_set);
+    console.log(values);
     switchPage('game-page', backgroundWelcomePagePath);
 }
 
 function keydownpressed(event, arrowType) {
-
     $(arrowType).val(event.key);
-    keyCode_set[arrowType] = event.keyCode;
-}
-
-function randomSetting() {
-    $("#upArrow").val("ArrowUp");
-    $("#downArrow").val("ArrowDown");
-    $("#leftArrow").val("ArrowLeft");
-    $("#rightArrow").val("ArrowRight");
-}
-
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function getRndColor() {
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    console.log(keyCode_set[arrowType]);
+    if (event.keyCode == "32") {
+        keyCode_set[arrowType] = "Space";
+    }
+    else {
+        keyCode_set[arrowType] = event.keyCode;
+    }
 }
 
 function setDefaultValues() {
-    $("#upArrow").val("ArrowUp");
-    $("#downArrow").val("ArrowDown");
-    $("#leftArrow").val("ArrowLeft");
-    $("#rightArrow").val("ArrowRight");
+    $("#shootKey").val("Space");
+    $("#gameTime").val("2");
 }
