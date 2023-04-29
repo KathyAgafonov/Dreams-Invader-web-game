@@ -86,21 +86,21 @@
         <div id="login" class="login-box">
             <h2>Login</h2>
             <form id="loginForm">
-              <div class="user-box">
-                <input type="text" name="Username" required="">
-                <label>Username</label>
-              </div>
-              <div class="user-box">
-                <input type="password" name="Password" required="">
-                <label>Password</label>
-              </div>
-              <a href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <label id="subLogin">Login</label>
-              </a>
+                <div class="user-box">
+                    <input type="text" name="Username" required="">
+                    <label>Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" name="Password" required="">
+                    <label>Password</label>
+                </div>
+                <a href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <label id="subLogin">Login</label>
+                </a>
             </form>
         </div>
     </div>
@@ -157,30 +157,48 @@
 
     <!---------------------------------------- settings div ---------------------------------------->
     <div id="settings-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
-        <div class="w3-container">
-            <div class="setting-box">
-                <h2>Setting</h2>.
-                <h1>You can change the game duration and the shoot button</h1>
-                <form id="settingForm" method="post">
+        <div id="settingScreen" class="setting-box">
+            <h2>Setting</h2>
+            <form id="settingForm" method="post">
+                <div class="user-setting-box">
+                    <input type="button" id="upArrow" name="upArrow" required>
+                    <label>Up</label>
+                </div>
+                <div class="user-setting-box">
+                    <input type="button" id="downArrow" name="downArrow" required>
+                    <label>Down</label>
+                </div>
+                <div class="user-setting-box">
+                    <input type="button" id="leftArrow" name="leftArrow" required>
+                    <label>Left</label>
+                </div>
+                <div class="user-setting-box">
+                    <input type="button" id="rightArrow" name="rightArrow" required>
+                    <label>Right</label>
+                </div>
+                <div class="user-setting-box">
+                    <input type="text" id="gameTime" name="gameTime" required>
+                    <label>Game Time</label>
+                </div>
+                <div>
+                    <a id="random_btn_area">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <label id="randomSetting">Random</label>
+                    </a>
+                    <a id="play_btn_area">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <input id="submitSetting" type="submit" value="Play"></input>
+                    </a>
+                </div>
 
-                    <div class="user-setting-box">
-                        <label>Game Time: <span id="gameTimeDisplay" style="color: #40f521;">120</span><span
-                                style="color: #40f521;"> seconds</span></label>
-                        </br>
-                        </br>
-                        <input type="range" id="gameTime" name="gameTime" min="120" max="1000" step="1" value="2">
-                    </div>
 
-                    <div class="user-setting-box">
-                        <input type="text" name="shootKey" required="" autocomplete="off" value="Space">
-                        <label>Shooting key</label>
-                    </div>
-
-                    <div>
-                        <button id="play_btn_area" onclick="switchPage('welcome-page', backgroundWelcomePagePath)"><span>Play</span></button>
-                    </div>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
 
@@ -221,6 +239,8 @@
 
     <script src="./js/screens/login.js"></script>
     <script src="./js/screens/settings.js"></script>
+    <script src="./js/validateSettings.js"></script>
+
 
     <script type="module" src="./js/game/theGame.js"></script>
 

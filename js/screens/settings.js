@@ -1,77 +1,62 @@
-// ----------------------- range time select -----------------------
-// get the input element for gameTime
-const gameTimeInput = document.querySelector('input[name="gameTime"]');
+var keyCode_set;
 
-// get the display element for gameTime
-const gameTimeDisplay = document.querySelector('#gameTimeDisplay');
-
-// listen for input event on the gameTime input element
-gameTimeInput.addEventListener('input', () => {
-    // update the value of the display element with the value of the input element
-    gameTimeDisplay.innerText = gameTimeInput.value;
+$(document).ready(function () {
+    $("#random_btn_area").click(randomSetting);
+    $("#upArrow").keydown(function (event) {
+        keydownpressed(event, "#upArrow");
+    }
+    );
+    $("#downArrow").keydown(function (event) {
+        keydownpressed(event, "#downArrow");
+    }
+    );
+    $("#leftArrow").keydown(function (event) {
+        keydownpressed(event, "#leftArrow");
+    }
+    );
+    $("#rightArrow").keydown(function (event) {
+        keydownpressed(event, "#rightArrow");
+    }
+    );
+    keyCode_set = { "#upArrow": 38, "#downArrow": 40, "#leftArrow": 37, "#rightArrow": 39 };
 });
 
+function settingSubmit() {
+    var $inputs = $('#settingForm :input');
+    var values = {};
+    $inputs.each(function () {
+        values[this.name] = $(this).val();
+    });
+    // reciveSettings(keyCode_set["#upArrow"], keyCode_set["#downArrow"], keyCode_set["#leftArrow"], keyCode_set["#rightArrow"],values["gameTime"]);
 
-// ----------------------- Selection of the key by the user to fire -----------------------
+    console.log(keyCode_set);
+    switchPage('game-page', backgroundWelcomePagePath);
+}
 
-// get the input element for shootKey
-const shootKeyInput = document.querySelector('input[name="shootKey"]');
+function keydownpressed(event, arrowType) {
 
-let keyAlreadyPressed = false; // flag variable to keep track of whether key has already been pressed
-let lastPressedKey = '';
+    $(arrowType).val(event.key);
+    keyCode_set[arrowType] = event.keyCode;
+}
 
+function randomSetting() {
+    $("#upArrow").val("ArrowUp");
+    $("#downArrow").val("ArrowDown");
+    $("#leftArrow").val("ArrowLeft");
+    $("#rightArrow").val("ArrowRight");
+}
 
-// listen for focus event on the shootKey input element
-shootKeyInput.addEventListener('focus', () => {
-    // set the value of the input element to an empty string
-    shootKeyInput.value = '';
-    keyAlreadyPressed = false; // reset flag variable
-  });
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
+function getRndColor() {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
 
-// listen for button press event on the document
-document.addEventListener('keydown', (event) => {
-  if (document.activeElement === shootKeyInput) {
-    
-    // update the value of shootKeyInput with the name of the pressed button
-    if (event.code === "Space") {
-      shootKeyInput.value = "space";
-      keyAlreadyPressed = true; // set flag variable to true
-    } else if (event.keyCode >= 65 && event.keyCode <= 90) {
-        lastPressedKey = event.key;
-
-        // shootKeyInput.value = event.key;
-        keyAlreadyPressed = true; // set flag variable to true
-    } else {
-      alert('Invalid key! Please select a letter key or spacebar.');
-      shootKeyInput.value = "";
-    }
-  }
-});
-
-// listen for button release event on the document
-document.addEventListener('keyup', (event) => {
-    // update the value of shootKeyInput only if the key was not a modifier key
-    if(!event.ctrlKey && !event.altKey && !event.metaKey && event.key === lastPressedKey) {
-      shootKeyInput.value = lastPressedKey;
-      lastPressedKey = '';
-    }
-  });
-
-  
-  // ----------------------- Constraint on the PLAY button -----------------------
-  // If the user presses PLAY when the shootkey input box it will pop up an alert and not let him start playing
-  // function playButtonClicked() {
-    // var shootKeyInput = document.getElementsByName('shootKey')[0];
-    // console.log(shootKeyInput)
-    // welcomePage_show()
-    // if (shootKeyInput.value.trim() == '') {
-    //   alert('Please enter a value for the shootKey input.');
-    //   return false;
-    // }
-    
-    // Otherwise, continue with the game.
-    // ...
-  // }
-
-  
+function setDefaultValues() {
+    $("#upArrow").val("ArrowUp");
+    $("#downArrow").val("ArrowDown");
+    $("#leftArrow").val("ArrowLeft");
+    $("#rightArrow").val("ArrowRight");
+}
