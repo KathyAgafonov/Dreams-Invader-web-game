@@ -52,14 +52,13 @@
 
     <!---------------------------------------- welcome div ---------------------------------------->
     <div id="welcome-page" class="w3-container page">
-        <h3 class="small-game-title w3-text-white">Scary Game</h3>
-        <h1 class="game-subtitle w3-text-white">Dreams Invader</h1>
+        <h1 class="game-title w3-text-white">Dreams Invader</h1>
+        <h3 class="small-game-title w3-text-white">Rick Vs Scary Terry</h3>
         <p class="game-description w3-text-white">Help Rick save Morty from the dreams invader Scary Terry</p>
         <p class="game-credits w3-text-white">~ Insperation from S1 EP2</p>
 
-        <button class="w3-button w3-white w3-margin-top w3-round-large w3-border w3-border-black"
-            onclick="showLoginScreen()" style="height: 5vh; width: 8vw; font-size: 2vh;">Login</button>
-        <button class="w3-button w3-black w3-margin-top w3-round-large" onclick="registerPage_show()"
+        <button class="w3-button w3-white w3-margin-top w3-round-large w3-border w3-border-black" onclick="switchPage('login-page', backgroundOtherPagesPath)" style="height: 5vh; width: 8vw; font-size: 2vh;">Login</button>
+        <button class="w3-button w3-black w3-margin-top w3-round-large" onclick="switchPage('register-page', backgroundOtherPagesPath)"
             style="height: 5vh; width: 8vw; font-size: 2vh;">Register</button>
     </div>
 
@@ -243,7 +242,7 @@
 
     <!---------------------------------------- footer div ---------------------------------------->
     <div class="w3-bottom">
-        <div class="w3-bar w3-black w3-opacity" id="footer">
+        <div class="w3-bar w3-black w3-opacity" id="footer"">
             <a class="w3-bar-item" style="font-size: 2.5vh">
                 Kathy Agafonov & Netanel Krotovich 2023 &copy; Contact us: kathyagafonov@gmail.com ,
                 krotonet@post.bgu.ac.il
