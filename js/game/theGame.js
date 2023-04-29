@@ -42,6 +42,10 @@ let score;
 let scores;
 let shown;
 
+let shootingKey = document.getElementById("#shootKey");
+let gameTime = document.getElementById("#gameTime");
+
+
 function newGame() {
   playerBulletController = new BulletController(canvas, "./src/images/game/pickle.png");
   player = new Player(canvas, 3, playerBulletController);
@@ -74,10 +78,10 @@ function initScoresArray(){
 }
 
 const logoutButton = document.getElementById("nav_logout");
-const playButton = document.getElementById("play");
+// const playButton = document.getElementById("play");
 
 logoutButton.addEventListener("click", initScoresArray);
-playButton.addEventListener("click", initScoresArray);
+// playButton.addEventListener("click", $("#score-table").hide());
 
 
 function play() {
