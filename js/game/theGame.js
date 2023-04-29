@@ -61,37 +61,73 @@ function newGame() {
   gameStartTime = new Date().getTime();
 
   score = 0;
-}
 
-function play() {
   // Calculate time remaining
   const now = new Date();
   const timeRemaining = Math.max(0, 120 - Math.floor((now - gameStartTime) / 1000));
   const minutesRemaining = Math.floor(timeRemaining / 60);
   const secondsRemaining = timeRemaining % 60;
+}
+
+function play() {
 
 
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  checkGameOver();
 
+  // checkGameOver();
+
+
+  if (!gameOver()) {
+    gameLoop();
+  }
 
   if (!isGameOver) {
-    enemyController.draw(ctx); // call the draw() method of EnemyController to draw the enemies on the canvas
-    enemyController.updateEnemies(); // update the position of the enemies
-    player.draw(ctx);
-    playerBulletController.draw(ctx);
-    enemyBulletController.draw(ctx);
 
-    score = enemyController.score;
-    ctx.fillStyle = "white";
-    ctx.font = "2.5vh Permanent Marker";
+    // enemyController.draw(ctx); // call the draw() method of EnemyController to draw the enemies on the canvas
+    // enemyController.updateEnemies(); // update the position of the enemies
+    // player.draw(ctx);
+    // playerBulletController.draw(ctx);
+    // enemyBulletController.draw(ctx);
 
-    ctx.fillText(`Score: ${score}`, 20, 40);
-    ctx.fillText(`Time Left: ${minutesRemaining}:${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`, 20, 70);
+    // score = enemyController.score;
+    // ctx.fillStyle = "white";
+    // ctx.font = "2.5vh Permanent Marker";
+
+    // ctx.fillText(`Score: ${score}`, 20, 40);
+    // ctx.fillText(`Time Left: ${minutesRemaining}:${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`, 20, 70);
 
   }
 
 }
+
+function gameLoop() {
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the game objects
+  enemyController.draw(ctx);
+  enemyController.updateEnemies();
+  player.draw(ctx);
+  playerBulletController.draw(ctx);
+  enemyBulletController.draw(ctx);
+
+  // Update the score
+  score = enemyController.score;
+  ctx.fillStyle = "white";
+  ctx.font = "2.5vh Permanent Marker";
+  ctx.fillText(`Score: ${score}`, 20, 40);
+  ctx.fillText(`Time Left: ${minutesRemaining}:${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`, 20, 70);
+
+  if (!gameOver()) {
+    window.requestAnimationFrame(gameLoop);
+  }
+  else {
+
+  }
+  
+  // Request the next frame
+}
+newGame();
+window.requestAnimationFrame(gameLoop);
 
 function displayGameOver() {
   if (isGameOver) {
@@ -104,11 +140,10 @@ function displayGameOver() {
   }
 }
 
-function checkGameOver() {
+function gameOver() {
   if (enemyBulletController.collides(player)) {
     player.hit()
     lifes--;
-    console.log("you shoot me!")
   }
 
   // if (enemyController.collides(player)) {
@@ -117,16 +152,20 @@ function checkGameOver() {
   //   console.log("Im dead!")
   // }
 
-  else if (enemyController.enemyRows.length === 0) {
+  if (enemyController.enemyRows.length === 0) { // win
     isWinner = true;
     isGameOver = true;
+    return true;
   }
 
-  if (lifes === 0 || isGameOver) {
+  if (lifes === 0) { // lose
     isGameOver = true;
-    gameOver();
-    displayGameOver();
+    return true;
+    // gameOver();
+    // displayGameOver();
   }
+
+  return false;
 }
 
 
@@ -263,13 +302,13 @@ $(window).on('beforeunload', function () {
   return 'Are you sure you want to leave?';
 });
 
-$(document).ready(function () {
-  $('#play').on('click', function () {
-    // Start the game here
-    newGame();
-    startGame();
-  });
-});
+// $(document).ready(function () {
+//   $('#play').on('click', function () {
+//     // Start the game here
+//     newGame();
+//     startGame();
+//   });
+// });
 
 function startGame() {
   // Code to start the game goes here
