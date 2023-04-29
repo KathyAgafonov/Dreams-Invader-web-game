@@ -240,8 +240,6 @@ $(document).ready(function () {
 let gamePlayed = false;
 
 function startGame() {
-  // Code to start the game goes here
-  // For example:
   backgroundSound.currentTime = 0;
   backgroundSound.play();
   intervalId = setInterval(play, 10);
@@ -251,11 +249,19 @@ function startGame() {
 
 function endGame() {
   console.log('Game ends!');
-  backgroundSound.muted = true;
+  backgroundSound.pause();
+  backgroundSound.currentTime = 0;
+  $('#mute-icon').attr('src', 'src/images/game/volume.png').css({ 'width': '30px', 'height': '30px' });
   clearInterval(intervalId);
-  // console.log('Game ends!');
 
-  // Reset all game variables here
 }
+
+// Add event listeners to all menu items
+const menuItems = document.querySelectorAll('.w3-bar-item');
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    endGame();
+  });
+});
 
 

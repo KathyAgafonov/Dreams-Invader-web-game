@@ -3,20 +3,15 @@ let shootKey = ' '
 let timerDuration = 120000;  //in seconds
 let logesUser;
 let isUserLoggedIn = false;
-var muteSound =true;
+var muteSound = true;
 
 let backgroundWelcomePagePath = 'src/images/screens/scary-welcome-cover.png';
 let backgroundOtherPagesPath = 'src/images/screens/second_background.png';
 let backgroundGamePagesPath = 'src/images/screens/background-canvas.png';
 
-switchPage('settings-page', null);
-
-$(document).ready(function() {
+$(document).ready(function () {
     switchPage('welcome-page', backgroundWelcomePagePath);
-    // addEventListenerAlerts();
 });
-
-
 
 // ----------------------------------- switchPages -----------------------------------
 
@@ -25,13 +20,13 @@ function switchPage(pageName, backgroundImagePath) {
     let pageToShow = document.getElementById(pageName);
     pageToShow.classList.remove("hide");
 
-    if(backgroundImagePath != null)  {
+    if (backgroundImagePath != null) {
         setBackgroundImage(backgroundImagePath);
     }
-    if(pageName === "game-page"){
-		document.body.style.backgroundImage = "none";
-		document.body.style.backgroundColor = "black";
-	}
+    if (pageName === "game-page") {
+        document.body.style.backgroundImage = "none";
+        document.body.style.backgroundColor = "black";
+    }
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {
@@ -54,8 +49,6 @@ function setBackgroundImage(src) {
     });
     image.src = src;
 }
-
-
 
 // ----------------------------------- about popup -----------------------------------
 function aboutPopup_show() {
