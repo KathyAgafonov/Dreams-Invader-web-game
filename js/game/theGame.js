@@ -149,6 +149,11 @@ function checkGameOver() {
     endGame();
   }
 }
+
+
+
+// ----------------------------- popup with the record table and a button for a new game -----------------------------
+
 function showScores() {
   // Get a reference to the table body
   var tableBody = $('#score-table tbody');
@@ -197,16 +202,6 @@ document.addEventListener('click', function(event) {
     scoreTable.style.display = 'none';
   }
 });
-
-
-// ----------------------------- Pop up with a button for another round when the game is over -----------------------------
-
-function gameOver() {
-  if (isGameOver) {
-    return;
-  }
-  isGameOver = true;
-}
 
 
 // ----------------------------- Mute/Unmute the sound in the game -----------------------------
