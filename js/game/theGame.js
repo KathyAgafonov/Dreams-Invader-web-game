@@ -127,8 +127,6 @@ function checkGameOver() {
     gameOver();
     displayGameOver();
   }
-
-
 }
 
 

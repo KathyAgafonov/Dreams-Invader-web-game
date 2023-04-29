@@ -1,5 +1,15 @@
 var keyCode_set;
 
+// $(document).ready(function() {
+//     // Hide the settings-page div by default
+//     $('#settings-page').hide();
+    
+//     // Add click event listener to the #subLogin button
+//     $('#subLogin').click(function() {
+//       // Display the settings-page div
+//       $('#settings-page').show();
+//     });
+//   });
 $(document).ready(function () {
     $("#random_btn_area").click(randomSetting);
     $("#upArrow").keydown(function (event) {

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./CSS/game/gameStyle.css"/>
+    <link rel="stylesheet" href="./CSS/game/gameStyle.css" />
 
     <title>Document</title>
 </head>
@@ -35,13 +35,12 @@
         <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="menuNavBar">
             <a class="w3-bar-item w3-button" onclick="switchPage('welcome-page', backgroundWelcomePagePath)">Welcome</a>
             <a id="about" class="w3-bar-item w3-button" onclick="aboutPopup_show()">About</a>
-            <!-- <a id="settings" class="w3-bar-item w3-button" onclick="switchPage('settings-page', null)">settings</a> -->
+            <a id="settings" class="w3-bar-item w3-button" onclick="switchPage('settings-page', null)">settings</a>
             <a id="login" class="w3-bar-item w3-button"
                 onclick="switchPage('login-page', backgroundOtherPagesPath)">Login</a>
             <a id="register" class="w3-bar-item w3-button"
                 onclick="switchPage('register-page', backgroundOtherPagesPath)">Register</a>
-            <a id="play" class="w3-bar-item w3-button"
-                onclick="switchPage('game-page', null)">Play</a>
+            <a id="play" class="w3-bar-item w3-button" onclick="switchPage('game-page', null)">Play</a>
 
             <!-- <a id="hi" class="w3-bar-item w3" style="float: right; padding-right: 30px;"><span>Hi </span><span id="loged_in_uname">guest</span></a> -->
             <div class="w3-bar-item w3-button" onclick="logout()" style="display: none;" id="nav_logout">LogOut</div>
@@ -80,7 +79,7 @@
     </div>
 
     <!---------------------------------------- login div ---------------------------------------->
-    <div id="login-page" class="login-box w3-container w3-half w3-padding-64 page hide">
+    <div id="login-page" class="w3-container w3-half w3-padding-64 page hide">
         <div id="login" class="login-box">
             <h2>Login</h2>
             <form id="loginForm">
@@ -88,6 +87,7 @@
                     <input type="text" name="Username" required="">
                     <label>Username</label>
                 </div>
+
                 <div class="user-box">
                     <input type="password" name="Password" required="">
                     <label>Password</label>
@@ -174,18 +174,21 @@
                     <input type="button" id="rightArrow" name="rightArrow" required>
                     <label>Right</label>
                 </div>
+                
                 <div class="user-setting-box">
                     <input type="text" id="gameTime" name="gameTime" required>
                     <label>Game Time</label>
                 </div>
                 <div>
-                    <a id="random_btn_area">
+                    <!-- <a id="random_btn_area">
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
                         <label id="randomSetting">Random</label>
-                    </a>
+                    </a> -->
+                </br>
+                <div id="play-btn-wrapper" style="position: absolute;"> 
                     <a id="play_btn_area">
                         <span></span>
                         <span></span>
@@ -193,6 +196,8 @@
                         <span></span>
                         <input id="submitSetting" type="submit" value="Play"></input>
                     </a>
+                </div>
+
                 </div>
 
 
