@@ -26,7 +26,6 @@ header {
 .w3-top {
     height: 6vh;
     text-align: center;
-    background: pink;
 }
 
 .w3-bar-item {
@@ -76,6 +75,8 @@ header {
 .game-credits {
     padding-top: 3%;
     font-size: 1.5vh;
+    font-family: 'Mochiy Pop One';
+
 }
 
 
