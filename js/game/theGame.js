@@ -109,6 +109,8 @@ function checkGameOver() {
   if (enemyBulletController.collides(player)) {
     player.hit()
     lifes--;
+    $("#life-img").attr("src", "/src/images/game/" + lifes + "life.png");
+
     console.log("you shoot me!")
   }
 
@@ -233,6 +235,7 @@ $('#mute-button').click(function () {
   }
   $(this).blur();
 });
+
 
 
 // $(document).ready(function() {

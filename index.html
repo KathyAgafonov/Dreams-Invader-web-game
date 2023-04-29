@@ -22,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/game/gameStyle.css" />
 
+
     <title>Document</title>
 </head>
 <header>
@@ -57,8 +58,11 @@
         <p class="game-description w3-text-white">Help Rick save Morty from the dreams invader Scary Terry</p>
         <p class="game-credits w3-text-white">~ Insperation from S1 EP2</p>
 
-        <button class="w3-button w3-white w3-margin-top w3-round-large w3-border w3-border-black" onclick="switchPage('login-page', backgroundOtherPagesPath)" style="height: 5vh; width: 8vw; font-size: 2vh;">Login</button>
-        <button class="w3-button w3-black w3-margin-top w3-round-large" onclick="switchPage('register-page', backgroundOtherPagesPath)"
+        <button class="w3-button w3-white w3-margin-top w3-round-large w3-border w3-border-black"
+            onclick="switchPage('login-page', backgroundOtherPagesPath)"
+            style="height: 5vh; width: 8vw; font-size: 2vh;">Login</button>
+        <button class="w3-button w3-black w3-margin-top w3-round-large"
+            onclick="switchPage('register-page', backgroundOtherPagesPath)"
             style="height: 5vh; width: 8vw; font-size: 2vh;">Register</button>
     </div>
 
@@ -173,7 +177,7 @@
                     <input type="button" id="rightArrow" name="rightArrow" required>
                     <label>Right</label>
                 </div>
-                
+
                 <div class="user-setting-box">
                     <input type="text" id="gameTime" name="gameTime" required>
                     <label>Game Time</label>
@@ -186,16 +190,16 @@
                         <span></span>
                         <label id="randomSetting">Random</label>
                     </a> -->
-                </br>
-                <div id="play-btn-wrapper" style="position: absolute;"> 
-                    <a id="play_btn_area">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <input id="submitSetting" type="submit" value="Play"></input>
-                    </a>
-                </div>
+                    </br>
+                    <div id="play-btn-wrapper" style="position: absolute;">
+                        <a id="play_btn_area">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <input id="submitSetting" type="submit" value="Play"></input>
+                        </a>
+                    </div>
 
                 </div>
 
@@ -213,6 +217,9 @@
             <canvas id="game" width="800" height="600"></canvas>
             <button id="mute-button"><img id="mute-icon" src="/src/images/game/volume.png"
                     style="width: 30px; height: 30px;"></button>
+            <img id="life-img" src="/src/images/game/3life.png" style="  position: absolute;
+                    top: 20px;
+                    right: 20px; width: 10%;">
             <!-- <button id="muteButton"><img src="volume.png"></button> -->
 
         </div>
@@ -243,9 +250,9 @@
     <!---------------------------------------- footer div ---------------------------------------->
     <div class="w3-bottom">
         <div class="w3-bar w3-black w3-opacity" id="footer"">
-            <a class="w3-bar-item" style="font-size: 2.5vh">
-                Kathy Agafonov & Netanel Krotovich 2023 &copy; Contact us: kathyagafonov@gmail.com ,
-                krotonet@post.bgu.ac.il
+            <a class=" w3-bar-item" style="font-size: 2.5vh">
+            Kathy Agafonov & Netanel Krotovich 2023 &copy; Contact us: kathyagafonov@gmail.com ,
+            krotonet@post.bgu.ac.il
             </a>
         </div>
     </div>
