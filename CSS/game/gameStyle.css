@@ -111,14 +111,23 @@
     border: 1px solid #ccc;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
+    width: 50vh;
+    font-size: large;
+    text-align: center; /* added to center all text */
   }
   
   #score-table thead th {
     font-weight: bold;
+    border-bottom: 1px solid #ccc;
   }
   
   #score-table tbody td:first-child {
     font-weight: bold;
+    border-right: 1px solid #ccc;
+  }
+  
+  #score-table tbody td {
+    border-bottom: 1px solid #ccc;
   }
   
   #score-table .close-btn {
@@ -127,6 +136,18 @@
     right: 5px;
     font-size: 18px;
     font-weight: bold;
-    color: #ccc;
+    color: gray;
     cursor: pointer;
   }
+  
+  .new-game-btn {
+    padding: 5px 10px;
+    background-color: #40f521;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+    cursor: pointer;
+    margin-top: 10%;
+  }
+  

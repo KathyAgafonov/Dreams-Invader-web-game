@@ -182,6 +182,22 @@ function showScores() {
   $('#score-table').show();
 }
 
+function startNewGame() {
+  // Reset all game variables here
+
+  // Hide the score table
+  $('#score-table').hide();
+}
+
+
+// Hide the popup table when clicking outside of it
+document.addEventListener('click', function(event) {
+  var scoreTable = document.getElementById('score-table');
+  if (event.target !== scoreTable && !scoreTable.contains(event.target)) {
+    scoreTable.style.display = 'none';
+  }
+});
+
 
 // ----------------------------- Pop up with a button for another round when the game is over -----------------------------
 
