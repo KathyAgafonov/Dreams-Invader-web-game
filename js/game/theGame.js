@@ -73,7 +73,7 @@ function newGame() {
   shown = false;
 }
 
-function initScoresArray(){
+function initScoresArray() {
   scores = []
 }
 
@@ -115,7 +115,17 @@ function play() {
 
 function displayGameOver() {
   if (isGameOver) {
-    let text = isWinner ? "You Win" : "Game Over";
+    let text = "";
+    if (lifes === 0) {
+      text = "You lost";
+    } else if (lifes > 0 && score < 100) {
+      text = "You can do better, your score is: " + score;
+    } else if (lifes > 0 && score >= 100) {
+      text = "Winner";
+    }
+    if (isWinner) {
+      text = "Champion!";
+    }
     let textOffset = isWinner ? 3.5 : 5;
 
     ctx.fillStyle = "white";
@@ -128,6 +138,7 @@ function displayGameOver() {
     }
   }
 }
+
 
 function checkGameOver() {
   $("#life-img").attr("src", "/src/images/game/" + lifes + "life.png");
@@ -144,13 +155,12 @@ function checkGameOver() {
 
   if (lifes === 0 || isGameOver) {
     isGameOver = true;
-    // gameOver();
     displayGameOver();
     endGame();
+    $("#life-img").attr("src", "/src/images/game/" + lifes + "life.png");
+
   }
 }
-
-
 
 // ----------------------------- popup with the record table and a button for a new game -----------------------------
 
@@ -187,22 +197,32 @@ function showScores() {
   $('#score-table').show();
 }
 
-function startNewGame() {
-  // Reset all game variables here
-
-  // Hide the score table
-  $('#score-table').hide();
-}
-
-
 // Hide the popup table when clicking outside of it
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
   var scoreTable = document.getElementById('score-table');
   if (event.target !== scoreTable && !scoreTable.contains(event.target)) {
     scoreTable.style.display = 'none';
   }
 });
 
+// new game button
+$(document).ready(function () {
+  $('#new-game-btn').on('click', function () {
+
+    // Start the game here
+    if (gamePlayed) {
+      endGame();
+      gamePlayed = false;
+    }
+    newGame();
+    startGame();
+
+    gamePlayed = true;
+
+    // Hide the score table
+    $('#score-table').hide();
+  });
+});
 
 // ----------------------------- Mute/Unmute the sound in the game -----------------------------
 $('#mute-button').click(function () {
@@ -232,11 +252,13 @@ $(window).on('beforeunload', function () {
   return 'Are you sure you want to leave?';
 });
 
+
+
 $(document).ready(function () {
   $('#play').on('click', function () {
 
     // Start the game here
-    if(gamePlayed){
+    if (gamePlayed) {
       endGame();
       gamePlayed = false;
     }
@@ -246,6 +268,8 @@ $(document).ready(function () {
     gamePlayed = true;
   });
 });
+
+
 
 
 let gamePlayed = false;
