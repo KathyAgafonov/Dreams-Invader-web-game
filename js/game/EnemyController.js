@@ -18,7 +18,7 @@ export default class EnemyController {
     projectileSpeed = -3;
     score = 0;
 
-    constructor(canvas, enemyBulletController, playerBulletController, scoreElement) {
+    constructor(canvas, enemyBulletController, playerBulletController) {
         this.canvas = canvas;
         this.enemyBulletController = enemyBulletController;
         this.playerBulletController = playerBulletController;
@@ -28,11 +28,6 @@ export default class EnemyController {
         this.createEnemies();
         this.direction = 1; // 1 for right, -1 for left
         this.speed = 2;
-        this.scoreElement = scoreElement;
-    }
-
-    getScore() {
-        return this.score;
     }
 
     draw(ctx) {
@@ -71,7 +66,6 @@ export default class EnemyController {
                     if(rowNumber == 0) {
                         this.score += 20;
                     }
-                    this.scoreElement.innerHTML = this.score;
                     enemyRow.splice(enemyIndex, 1);
                 }
             });

@@ -15,9 +15,6 @@ export default class Player {
     flashStartTime = 0;
     flashDuration = 500; // in milliseconds
 
-    lifes = 3;
-    eliminated = false;
-
     constructor(canvas, velocity, bulletController) {
         this.canvas = canvas;
         this.velocity = velocity;
@@ -51,15 +48,6 @@ export default class Player {
         this.flashing = true;
         this.flashStartTime = Date.now();
 
-        // life decrease
-        this.lifes--;
-        if(this.lifes === 0) {
-            this.eliminated = true;
-        }
-    }
-
-    hasBeenEliminated() {
-        return this.eliminated;
     }
 
     draw(ctx) {

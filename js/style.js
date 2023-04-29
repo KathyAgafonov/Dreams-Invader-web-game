@@ -29,6 +29,10 @@ function switchPage(pageName, backgroundImagePath) {
     if(backgroundImagePath != null)  {
         setBackgroundImage(backgroundImagePath);
     }
+    if(pageName === "game-page"){
+		document.body.style.backgroundImage = "none";
+		document.body.style.backgroundColor = "black";
+	}
 
     let pages = document.getElementsByClassName("page");
     for (let i = 0; i < pages.length; i++) {

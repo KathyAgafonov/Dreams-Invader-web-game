@@ -1,0 +1,100 @@
+/*    #canvas-container {
+    position: relative;
+    background-color: transparent;
+  }
+  
+  #game {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+  }
+   */
+
+
+   #mute-button {
+    position: absolute;
+    bottom: 15vh;
+    right: 10vh;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  #mute-icon {
+    width: 50%;
+    height: 50%;
+  }
+
+
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+  }
+  
+  .popup p {
+    font-size: 24px;
+    margin: 0 0 20px;
+  }
+  
+  .popup button {
+    font-size: 24px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .popup button:hover {
+    background-color: #3e8e41;
+  }
+  
+
+
+  #recordTable {
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    max-width: 600px;
+  }
+
+  #recordTable h2 {
+    font-size: 24px;
+    margin-top: 0;
+  }
+
+  #recordTable-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+  }
+
+  #recordTable-table th,
+  #recordTable-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+
+  #recordTable-table th {
+    background-color: #40f521;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  #recordTable-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
