@@ -45,7 +45,7 @@ let shown;
 let shootingKey = document.getElementById("#shootKey");
 let gameTime = document.getElementById("#gameTime");
 
-
+newGame();
 function newGame() {
   playerBulletController = new BulletController(canvas, "./src/images/game/pickle.png");
   player = new Player(canvas, 3, playerBulletController);
@@ -223,6 +223,7 @@ $(window).on('beforeunload', function () {
 
 $(document).ready(function () {
   $('#play').on('click', function () {
+
     // Start the game here
     if(gamePlayed){
       endGame();
@@ -230,9 +231,11 @@ $(document).ready(function () {
     }
     newGame();
     startGame();
+
     gamePlayed = true;
   });
 });
+
 
 let gamePlayed = false;
 
