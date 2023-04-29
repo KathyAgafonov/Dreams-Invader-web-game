@@ -26,6 +26,7 @@ header {
 .w3-top {
     height: 6vh;
     text-align: center;
+    background: pink;
 }
 
 .w3-bar-item {
