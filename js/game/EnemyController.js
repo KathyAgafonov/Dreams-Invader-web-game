@@ -124,7 +124,7 @@ export default class EnemyController {
             if (newPosX < 0 || newPosX + enemy.width > this.canvas.width) {
                 this.direction = -this.direction; // change direction
                 this.enemyRows.flat().forEach((enemy2) => {
-                    enemy2.move(0, 10); // move down
+                    // enemy2.move(0, 10); // move down
                 });
                 enemyMoved = true;
             }
