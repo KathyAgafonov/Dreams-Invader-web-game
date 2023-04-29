@@ -57,7 +57,7 @@ function newGame() {
   isWinner = false;
 
   lifes = 3;
-  
+
   gameStartTime = new Date().getTime();
 
   score = 0;
@@ -73,9 +73,9 @@ function play() {
 
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   checkGameOver();
-  
 
-  if(!isGameOver) {
+
+  if (!isGameOver) {
     enemyController.draw(ctx); // call the draw() method of EnemyController to draw the enemies on the canvas
     enemyController.updateEnemies(); // update the position of the enemies
     player.draw(ctx);
@@ -121,7 +121,7 @@ function checkGameOver() {
     isWinner = true;
     isGameOver = true;
   }
-  
+
   if (lifes === 0 || isGameOver) {
     isGameOver = true;
     gameOver();
@@ -135,82 +135,82 @@ function checkGameOver() {
 
 // ----------------------------- Pop up with a button for another round when the game is over -----------------------------
 
-function gameOver() {
-  if (isGameOver) {
-    return;
-  }
+// function gameOver() {
+//   if (isGameOver) {
+//     return;
+//   }
 
-  isGameOver = true;
+//   isGameOver = true;
 
-  // Get the current date and time
-  const now = new Date();
-  const date = now.toLocaleDateString();
-  const time = now.toLocaleTimeString();
-  
-  // Add the score and date to the record table
-  const recordTable = $("#recordTable-table tbody");
-  const newRow = $("<tr>");
-  newRow.append($("<td>").text(rankNumber));
-  newRow.append($("<td>").text(`${date} ${time}`));
-  newRow.append($("<td>").text(enemyController.score));
-  recordTable.append(newRow);
-  
-  // Increment the rank number for the next game
-  rankNumber++;
-    
-  // Create a new HTML element for the pop-up window
-  const popup = document.createElement("div");
-  popup.classList.add("popup");
+//   // Get the current date and time
+//   const now = new Date();
+//   const date = now.toLocaleDateString();
+//   const time = now.toLocaleTimeString();
 
-  // Add the player's score and the record table to the pop-up window
-  const scoreText = document.createElement("p");
-  scoreText.textContent = `Your Score: ${enemyController.score}`;
-  popup.appendChild(scoreText);
-  
-  // Add the record table to the pop-up window
-  const table = document.createElement("table");
-  table.id = "recordTable-popup";
-  const tableHead = document.createElement("thead");
-  const tableHeadRow = document.createElement("tr");
-  tableHeadRow.innerHTML = "<th>Rank</th><th>Date</th><th>Score</th>";
-  tableHead.appendChild(tableHeadRow);
-  const tableBody = document.createElement("tbody");
-  tableBody.innerHTML = recordTable.html();
-  table.appendChild(tableHead);
-  table.appendChild(tableBody);
-  popup.appendChild(table);
+//   // Add the score and date to the record table
+//   const recordTable = $("#recordTable-table tbody");
+//   const newRow = $("<tr>");
+//   newRow.append($("<td>").text(rankNumber));
+//   newRow.append($("<td>").text(`${date} ${time}`));
+//   newRow.append($("<td>").text(enemyController.score));
+//   recordTable.append(newRow);
 
-  // Add a button to start a new round
-  const anotherRoundButton = document.createElement("button");
-  anotherRoundButton.textContent = "Another Round";
-  anotherRoundButton.addEventListener("click", () => {
-    popup.remove();
-    newGame();
-    startGame();
-  });
-  popup.appendChild(anotherRoundButton);
+//   // Increment the rank number for the next game
+//   rankNumber++;
 
-  // Save a reference to the popup element
-  const popupContainer = document.body.appendChild(popup);
+//   // Create a new HTML element for the pop-up window
+//   const popup = document.createElement("div");
+//   popup.classList.add("popup");
 
-  // Add an event listener to the menu items to close the popup when a different menu item is clicked
-  const menuItems = document.querySelectorAll("#menuNavBar a");
-  for (let i = 0; i < menuItems.length; i++) {
-    menuItems[i].addEventListener("click", () => {
-      popupContainer.remove();
-    });
-  }
+//   // Add the player's score and the record table to the pop-up window
+//   const scoreText = document.createElement("p");
+//   scoreText.textContent = `Your Score: ${enemyController.score}`;
+//   popup.appendChild(scoreText);
 
-  // Add an event listener to the window object to close the popup when the window loses focus
-  window.addEventListener("blur", () => {
-    popupContainer.remove();
-  });
-}
+//   // Add the record table to the pop-up window
+//   const table = document.createElement("table");
+//   table.id = "recordTable-popup";
+//   const tableHead = document.createElement("thead");
+//   const tableHeadRow = document.createElement("tr");
+//   tableHeadRow.innerHTML = "<th>Rank</th><th>Date</th><th>Score</th>";
+//   tableHead.appendChild(tableHeadRow);
+//   const tableBody = document.createElement("tbody");
+//   tableBody.innerHTML = recordTable.html();
+//   table.appendChild(tableHead);
+//   table.appendChild(tableBody);
+//   popup.appendChild(table);
 
+//   // Add a button to start a new round
+//   const anotherRoundButton = document.createElement("button");
+//   anotherRoundButton.textContent = "Another Round";
+//   anotherRoundButton.addEventListener("click", () => {
+//     popup.remove();
+//     newGame();
+//     startGame();
+//   });
+//   popup.appendChild(anotherRoundButton);
 
+//   // Save a reference to the popup element
+//   const popupContainer = document.body.appendChild(popup);
+
+//   // Add an event listener to the menu items to close the popup when a different menu item is clicked
+//   const menuItems = document.querySelectorAll("#menuNavBar a");
+//   for (let i = 0; i < menuItems.length; i++) {
+//     menuItems[i].addEventListener("click", () => {
+//       popupContainer.remove();
+//     });
+//   }
+
+//   // Add an event listener to the window object to close the popup when the window loses focus
+//   window.addEventListener("blur", () => {
+//     popupContainer.remove();
+//   });
+// }
 
 
-// ----------------------------- Mute/Unmute the sound in the game -----------------------------
+
+
+// ----------------------------- Mute/mute the sound in the game -----------------------------
 $('#mute-button').click(function () {
   if (backgroundSound.muted) {
     // Unmute audio
