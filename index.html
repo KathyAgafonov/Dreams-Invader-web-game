@@ -193,8 +193,6 @@
 
     <!---------------------------------------- the game div ---------------------------------------->
     <div id="game-page" class="w3-container page hide">
-        <!-- <p style="color: white; background: transparent; font-size: 2.5vh;"><span>Score:</span> <span id="scoreElement">0</span></p> -->
-        <!-- <i class="fi fi-sr-volume"></i> -->
         <div id="canvas-container">
             <canvas id="game" width="800" height="600"></canvas>
             <button id="mute-button"><img id="mute-icon" src="/src/images/game/volume.png"
@@ -202,28 +200,39 @@
             <img id="life-img" src="/src/images/game/3life.png" style="  position: absolute;
                     top: 20px;
                     right: 20px; width: 10%;">
-            <!-- <button id="muteButton"><img src="volume.png"></button> -->
         </div>
         <div>
             <table id="score-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Rows will be added dynamically using jQuery -->
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">
-                            <button class="close-btn" onclick="$('#score-table').hide();">X</button>
-                        </td>
-                    </tr>
-                </tfoot>
+              <thead>
+                <tr>
+                  <th colspan="2">
+                    <h1 style="font-family: 'Permanent Marker', cursive;">SCORE TABLE</h1>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Rank</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Rows will be added dynamically using jQuery -->
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2">
+                    <button class="close-btn" onclick="$('#score-table').hide();">X</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <button class="new-game-btn" onclick="startNewGame();">New Game</button>
+                  </td>
+                </tr>
+              </tfoot>
             </table>
-        </div>
+          </div>
+          
+          
     </div>
 
     <!---------------------------------------- footer div ---------------------------------------->
