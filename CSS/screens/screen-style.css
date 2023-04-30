@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Mochiy+Pop+One&family=Nosifer&family=Permanent+Marker&family=Poppins:ital,wght@0,800;1,900&display=swap');
 * {
     /* font-family: 'Mochiy Pop One'; */
-    font-family: 'Permanent Marker', cursive;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 
 }
 
@@ -90,21 +90,27 @@ header {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.6);
-}
-
-.w3-modal-content {
+  }
+  
+  .w3-modal-content {
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-}
+    font-size: 2.5vh;
 
-@media (max-width: 767px) {
+  }
+  
+  @media (max-width: 767px) {
     .w3-modal-content {
-        margin: 15% auto;
-        width: 90%;
+      margin: 15% auto;
+      width: 90%;
     }
-}
+  }
+  
+  .w3-container {
+    width: 100%;
+  }
 
 
 
