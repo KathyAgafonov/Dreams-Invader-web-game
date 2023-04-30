@@ -117,7 +117,6 @@ export default class EnemyController {
 
     // This function updates the enemy positions and speeds up the enemies every 5 seconds for max 4 times
     updateEnemies() {
-        // console.log("enemy speed:" + this.speed)
         let enemyMoved = false;
         this.enemyRows.flat().forEach((enemy) => {
             const newPosX = enemy.x + this.direction * this.speed;

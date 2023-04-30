@@ -29,14 +29,11 @@ function loginSubmit(){
         onlineUser = values["Username"];
         showUsername();
         switchPage('settings-page', null);
-        // $("#register").hide();
-        // $("#login").hide();
         $("#nav_logout").show();
         $("#play").show();
 
 
         document.getElementById("loginForm").reset();
-        // onlineUserText.show();
     }
     else {
         alert("Incorrect  username or password is incorrect");
@@ -50,9 +47,7 @@ function showUsername(){
 
 
 function logout() {
-    console.log(onlineUser);
     onlineUser = null;
-    //style logout button as login
     $("#onlineUserText").hide();
     $("#nav_logout").hide();
     $("#play").hide();

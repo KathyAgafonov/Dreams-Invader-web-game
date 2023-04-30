@@ -19,7 +19,6 @@ function onlineUserCheck(pageName) {
 }
 
 function switchPage(pageName, backgroundImagePath) {
-    console.log(pageName)
     let pageToShow = document.getElementById(pageName);
     pageToShow.classList.remove("hide");
 

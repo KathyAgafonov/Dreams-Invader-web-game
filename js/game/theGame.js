@@ -326,7 +326,6 @@ export function startGame() {
 }
 
 function endGame() {
-  console.log('Game ends!');
   backgroundSound.pause();
   backgroundSound.currentTime = 0;
   $('#mute-icon').attr('src', 'src/images/game/volume.png').css({ 'width': '30px', 'height': '30px' });
