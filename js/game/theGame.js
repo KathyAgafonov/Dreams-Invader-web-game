@@ -231,7 +231,7 @@ $(document).ready(function () {
       gamePlayed = false;
     }
     newGame();
-    startGame();
+    gameIntervals();
 
     gamePlayed = true;
 
@@ -272,28 +272,29 @@ $(window).on('beforeunload', function () {
 
 $(document).ready(function () {
   $('#play').on('click', function () {
-
-    // Start the game here
-    if (gamePlayed) {
-      endGame();
-      gamePlayed = false;
-    }
-    newGame();
     startGame();
-
-    gamePlayed = true;
   });
 });
 
 
 let gamePlayed = false;
 
-export function startGame() {
+export function gameIntervals() {
   backgroundSound.currentTime = 0;
   backgroundSound.play();
   intervalId = setInterval(play, 10);
 
-  console.log('Game started!');
+}
+
+export function startGame() {
+    if (gamePlayed) {
+      endGame();
+      gamePlayed = false;
+    }
+    newGame();
+    gameIntervals();
+
+    gamePlayed = true;
 }
 
 function endGame() {
@@ -329,7 +330,7 @@ function pauseGame() {
     intervalId = null;
     backgroundSound.pause();
   } else {
-    startGame();
+    gameIntervals();
   }
 }
 
