@@ -29,8 +29,8 @@ function loginSubmit(){
         onlineUser = values["Username"];
         showUsername();
         switchPage('settings-page', null);
-        $("#register_menu").hide();
-        // $("#login_menu").hide();
+        // $("#register").hide();
+        // $("#login").hide();
         $("#nav_logout").show();
         document.getElementById("loginForm").reset();
         // onlineUserText.show();

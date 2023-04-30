@@ -44,7 +44,7 @@
             <a id="play" class="w3-bar-item w3-button" onclick="switchPage('game-page', null)">Play</a>
 
             <!-- <a id="hi" class="w3-bar-item w3" style="float: right; padding-right: 30px;"><span>Hi </span><span id="loged_in_uname">guest</span></a> -->
-            <div class="w3-bar-item w3-button" onclick="logout()" style="display: none;" id="nav_logout">LogOut</div>
+            <div  id="nav_logout" class="w3-bar-item w3-button" onclick="logout()" style="display: none;">LogOut</div>
             <div class="w3-bar-item w3" style="float: right; padding-right: 30px; display: none;" id="onlineUserText">
                 Hi: </div>
         </div>
@@ -171,6 +171,7 @@
                     <input type="text" id="gameTime" name="gameTime" required>
                     <label>Game Time</label>
                 </div>
+
                 <div>
                     </br>
                     <div id="play-btn-wrapper" style="position: absolute;">
@@ -182,14 +183,11 @@
                             <input id="submitSetting" type="submit" value="Play"></input>
                         </a>
                     </div>
-
                 </div>
-
 
             </form>
         </div>
     </div>
-
 
     <!---------------------------------------- the game div ---------------------------------------->
     <div id="game-page" class="w3-container page hide">
@@ -211,9 +209,8 @@
                     </tr>
                     <tr>
                         <th colspan="2">
-                            <a style="font-family: 'Permanent Marker', cursive; font-size: 2.5vh; "> 
+                            <a style="font-family: 'Permanent Marker', cursive; font-size: 2.5vh; ">
                                 <span id="loged_in_uname_score_table"></span><span> ALL TIME SCORE</span>
-                                <!-- <h2 id="allTimeTitle"> ALL TIME SCORE</h2> -->
                             </a>
                         </th>
                     </tr>
