@@ -18,8 +18,9 @@ function settingSubmit() {
     
     console.log(keyCode_set);
     console.log(values);
-    switchPage('game-page', backgroundWelcomePagePath);
+    switchPage('game-page', null);
 }
+
 
 function keydownpressed(event, arrowType) {
     $(arrowType).val(event.key);
