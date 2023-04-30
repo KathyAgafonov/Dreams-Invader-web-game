@@ -142,7 +142,7 @@ function displayGameOver() {
         showScores();
         shown = true;
       }
-    }, 1500);
+    }, 2000);
   }
 }
 
