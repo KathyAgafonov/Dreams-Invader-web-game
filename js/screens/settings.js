@@ -62,7 +62,6 @@ function keydownpressed(event, arrowType) {
     } else {
         $(arrowType).val(event.key);
     }
-    console.log(keyCode_set[arrowType]);
     keyCode_set[arrowType] = event.keyCode;
 }
 
