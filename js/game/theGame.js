@@ -285,21 +285,6 @@ $(document).ready(function () {
 });
 
 
-function play() {
-  // Start the game here
-  if (gamePlayed) {
-    endGame();
-    gamePlayed = false;
-  }
-  newGame();
-  startGame();
-
-  gamePlayed = true;
-}
-
-
-
-
 let gamePlayed = false;
 
 function startGame() {
