@@ -284,6 +284,27 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function() {
+  $("#login, #register").click(function(event) {
+    if ($("#play").is(":visible") && $("#nav_logout").is(":visible")) {
+      event.preventDefault();
+      var result = confirm("Do you want to logout the game?");
+      if (result) {
+        // User clicked "OK", logout the game
+        logout();
+      } else {
+        pauseGame();
+        pauseGame();
+        $(this).blur();
+        // User clicked "Cancel", do nothing
+      }
+    }
+  });
+});
+
+
+
+
 let gamePlayed = false;
 
 export function gameIntervals() {
@@ -324,7 +345,6 @@ menuItems.forEach(item => {
 // // ----------------------------- Pause/Resume the game -----------------------------
 $("#pause-button").click(function () {
   pauseGame();
-  console.log("pause")
   $(this).blur();
 
 });
