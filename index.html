@@ -36,16 +36,17 @@
         <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="menuNavBar">
             <a class="w3-bar-item w3-button" onclick="switchPage('welcome-page', backgroundWelcomePagePath)">Welcome</a>
             <a id="about" class="w3-bar-item w3-button" onclick="aboutPopup_show()">About</a>
-            <a id="settings" class="w3-bar-item w3-button" onclick="switchPage('settings-page', null)" style="display: none;">settings</a>
-            <a id="login" class="w3-bar-item w3-button"
-                onclick="onlineUserCheck('login-page')">Login</a>
-            <a id="register" class="w3-bar-item w3-button"
-                onclick="onlineUserCheck('register-page')">Register</a>
-                <div id="nav_logout" class="w3-bar-item w3-button" onclick="logout()" style="display: none;">LogOut</div>
-            <a id="play" class="w3-bar-item w3-button" onclick="switchPage('game-page', null)" style="display: none; color: #40f521;">New Game</a>
+            <a id="settings" class="w3-bar-item w3-button" onclick="switchPage('settings-page', null)"
+                style="display: none;">settings</a>
+            <a id="login" class="w3-bar-item w3-button" onclick="onlineUserCheck('login-page')">Login</a>
+            <a id="register" class="w3-bar-item w3-button" onclick="onlineUserCheck('register-page')">Register</a>
+            <div id="nav_logout" class="w3-bar-item w3-button" onclick="logout()" style="display: none;">LogOut</div>
+            <a id="play" class="w3-bar-item w3-button" onclick="switchPage('game-page', null)"
+                style="display: none; color: #40f521;">New Game</a>
 
             <!-- <a id="hi" class="w3-bar-item w3" style="float: right; padding-right: 30px;"><span>Hi </span><span id="loged_in_uname">guest</span></a> -->
-            <div class="w3-bar-item w3" style="float: right; padding-right: 30px; display: none;" id="onlineUserText">Hi: </div>
+            <div class="w3-bar-item w3" style="float: right; padding-right: 30px; display: none;" id="onlineUserText">
+                Hi: </div>
         </div>
     </div>
 
@@ -69,27 +70,64 @@
     <!---------------------------------------- about popup div ---------------------------------------->
     <div id="about-popup" class="w3-modal" style="display:none">
         <div class="w3-modal-content w3-animate-top w3-card-4">
-          <header class="w3-container w3-light-grey">
-            <span onclick="aboutPopup_close()" class="w3-button w3-display-topright">&times;</span>
-            <h3 style="font-family: 'Permanent Marker', cursive; font-size: 3vh;">About</h3>
-          </header>
-          <div class="w3-container">
-            <div class="about-content">
-              <p style="font-family: 'Mochiy Pop One';">The team - Kathy Agafonov & Netanel Krotovich.</p>
-              <p  style="font-family: 'Mochiy Pop One';">We chose to develop a game inspired by Chicken Invaders, where our main role is Rick, trying to kill "Scary Terry".</p>
-              <p  style="font-family: 'Mochiy Pop One';">To start a game you have to have a user first and to be logged in. This game was developed using JavaScript, HTML5 and CSS. We used the Validate jQuery Plugin and slim.min.js package, a Date Picker Template, designed forms and buttons, and the W3.CSS framework and Googleapis fonts.</p>
-              <p  style="font-family: 'Mochiy Pop One';">The difficulties in this work were:</p>
-              <ol>
-                <li style="font-family: 'Mochiy Pop One';">Make the characters move and connect them to listeners.</li>
-                <li style="font-family: 'Mochiy Pop One';">Styling the different pages of the game.</li>
-                <li style="font-family: 'Mochiy Pop One';">Developing the validation using jQuery.</li>
-              </ol>
+            <header class="w3-container w3-light-grey">
+                <span onclick="aboutPopup_close()" class="w3-button w3-display-topright">&times;</span>
+                <h3 style="font-family: 'Permanent Marker', cursive; font-size: 7vh; ">About</h3>
+            </header>
+            <div class="w3-container">
+                <div class="about-content">
+                    <br>
+                    <p><u><b>The team:</b></u></p>
+                    <p>Kathy Agafonov & Netanel Krotovich.</p>
+                    <p>We chose to develop a game inspired by Chicken Invaders, where our main role is Rick, trying to
+                        kill "Scary Terry".</p>
+                    <p>This game was developed using JavaScript, HTML5 and CSS. We used the Validate jQuery Plugin and
+                        slim.min.js package, a Date Picker Template, designed forms and buttons, and the W3.CSS
+                        framework and Googleapis fonts.</p>
+                    <p>The difficulties in this work were:</p>
+                    <ol>
+                        <li>Make the characters move and connect them to listeners.</li>
+                        <li>Styling the different pages of the game.</li>
+                        <li>Developing the validation using jQuery.</li>
+                    </ol>
+                    <h2 style="font-family: 'Permanent Marker', cursive; font-size: 4vh;">Game Instructions</h2>
+                    <p>
+                    <p><u><b>Game Keys:</b></u></p>
+                    &emsp;&emsp;Up: use the ⬆ Key <br>
+                    &emsp;&emsp;Down: use the ⬇ Key<br>
+                    &emsp;&emsp;Left: use the ⬅ Key<br>
+                    &emsp;&emsp;Right: use the ➡ Key<br>
+                    &emsp;&emsp;Shot: Space Bar by deafult, but you can choose your own Key<br>
+                    </p>
+
+
+                    <p>
+                    <p><u><b>General instructions:</b></u></p>
+                    <ul>
+                        <li>To start a game you have to have a user first and to be logged in.</li>
+                        <li>After login, you can choose the shooting key and game duration. Default shooting key is
+                            space and 2 minutes.</li>
+                        <li>You are starting the game with 3 lives. After 3 hits it's game over and you lose the game.
+                        </li>
+                        <li>During playing the game, in the right corner you can see the time left to play.</li>
+                        <li>Notice! If time is over and you earned less than 100 points - you lose!</li>
+                        <li>In the right top corner, you can see the number of lives you have left.</li>
+                    </ul>
+                    </p>
+
+                    <p><b>Defeat Scary Terry and rescue Morty from the dream invader!</b></p>
+                    <p style="font-family: 'Permanent Marker', cursive; font-size: 4vh;"><b>HAVE FUN ☺</b></p>
+
+
+
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      
-      
+    </div>
+
+
+
+
 
     <!---------------------------------------- login div ---------------------------------------->
     <div id="login-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
