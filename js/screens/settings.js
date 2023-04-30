@@ -1,6 +1,4 @@
 import { startGame } from '../game/theGame.js';
-import { getSettings } from "../game/Player.js";
-
 
 var keyCode_set;
 
@@ -46,6 +44,8 @@ function settingSubmit() {
     });
 
     startGame(); // Add this line to start the game
+
+    // getSettings(values["shootingKey"], values["gameTime"]);
 
     console.log(keyCode_set);
     console.log(values);

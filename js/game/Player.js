@@ -1,7 +1,7 @@
-export function getSettings(shoot, game_time){
-    console.log('shoot');
-    console.log('-----------------');
-}
+// export function getSettings(shoot, game_time){
+//     console.log('shoot');
+//     console.log('-----------------');
+// }
 // Image paths
 let rightRickImagePath = "./src/images/game/rick_right.png";
 let leftRickImagePath = "./src/images/game/rick_left.png";
