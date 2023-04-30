@@ -22,8 +22,4 @@ The game was developed using JavaScript, HTML5, and CSS. We used the Validate jQ
 
 The game was developed by Kathy Agafonov and Netanel Krotovich as an assignment for a web development course.
 
-## License
-
-This game is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10927429&assignment_repo_type=AssignmentRepo)
