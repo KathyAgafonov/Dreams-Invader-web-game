@@ -143,6 +143,7 @@ function displayGameOver() {
       }
     }
     if (isWinner) {
+      text = "Champion!";
       setTimeout(() => {
         winnerSound.play();
       }, 1000); // wait for 1 second
