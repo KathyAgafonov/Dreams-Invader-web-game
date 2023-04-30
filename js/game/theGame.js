@@ -47,8 +47,10 @@ let timeRemaining;
 let minutesRemaining;
 let secondsRemaining;
 
-let shootingKey = document.getElementById("#shootKey");
-let gameTime = document.getElementById("#gameTime");
+let game_time = 120
+export function getGameTime(gTime){
+  game_time = gTime;
+}
 
 newGame();
 function newGame() {
@@ -89,7 +91,7 @@ logoutButton.addEventListener("click", initScoresArray);
 function play() {
   // Calculate time remaining
   now = new Date();
-  timeRemaining = Math.max(0, 120 - Math.floor((now - gameStartTime) / 1000));
+  timeRemaining = Math.max(0, game_time - Math.floor((now - gameStartTime) / 1000));
   minutesRemaining = Math.floor(timeRemaining / 60);
   secondsRemaining = timeRemaining % 60;
 
@@ -112,9 +114,8 @@ function play() {
     ctx.fillStyle = "white";
     ctx.font = "2.5vh Permanent Marker";
 
-    ctx.fillText(`Score: ${score}`, 5, 30);
-    ctx.fillText(`Time Left: ${minutesRemaining}:${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`, 200, 30);
-
+    document.getElementById("score_element").textContent = score;
+    document.getElementById("time_element").textContent = `${minutesRemaining}:${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`;
   }
 
 }

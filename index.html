@@ -200,9 +200,15 @@
             <canvas id="game" width="800" height="600"></canvas>
             <button id="mute-button"><img id="mute-icon" src="/src/images/game/volume.png"
                     style="width: 30px; height: 30px;"></button>
-            <img id="life-img" src="/src/images/game/3life.png" style="  position: absolute;
-                    top: 20px;
-                    right: 20px; width: 10%;">
+            <img id="life-img" src="/src/images/game/3life.png">
+            <div style="color: aliceblue;">
+                <a class="scoreAndTimeLeft-element">
+                    <span>Score: </span><span id="score_element" style="margin-right: 10vh;"></span>
+                    <span>Time Left: </span><span id="time_element"></span>
+                </a>
+            </div>
+
+
         </div>
         <div>
             <table id="score-table" style="display: none;">
@@ -214,7 +220,7 @@
                     </tr>
                     <tr>
                         <th colspan="2">
-                            <a style="font-family: 'Permanent Marker', cursive; font-size: 2.5vh; ">
+                            <a style="font-family: 'Permanent Marker', cursive; font-size: 2vh; ">
                                 <span id="loged_in_uname_score_table"></span><span> ALL TIME SCORE</span>
                             </a>
                         </th>
@@ -244,12 +250,8 @@
 
         <button id="pause-button"><img id="ause-icon" src="/src/images/game/play.png"
                 style="width: 35px; height: 35px;"></button>
-
-        <!-- <button id="btn-pause" class="#btn-pause" style="width: 30px; height: 30px; color: aliceblue;">STOP</button> -->
-
-
-
     </div>
+
 
     <!---------------------------------------- footer div ---------------------------------------->
     <div class="w3-bottom">
@@ -277,7 +279,6 @@
 
     <script src="./js/screens/login.js"></script>
     <script type="module" src="./js/screens/settings.js"></script>
-    <script type="module" src="./js/validateSettings.js"></script>
 
     <script type="module" src="./js/game/theGame.js"></script>
 

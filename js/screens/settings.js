@@ -1,4 +1,6 @@
 import { startGame } from '../game/theGame.js';
+import { getShootingKey } from '../game/Player.js';
+import { getGameTime } from '../game/theGame.js';
 
 var keyCode_set;
 
@@ -45,10 +47,9 @@ function settingSubmit() {
 
     startGame(); // Add this line to start the game
 
-    // getSettings(values["shootingKey"], values["gameTime"]);
-
-    console.log(keyCode_set);
-    console.log(values);
+    getShootingKey(values["shootKey"]);
+    getGameTime(values["gameTime"]);
+    
     switchPage('game-page', null);
 
 }
@@ -56,15 +57,15 @@ function settingSubmit() {
 
 
 function keydownpressed(event, arrowType) {
-    $(arrowType).val(event.key);
+    if (event.keyCode === 32) {
+        $(arrowType).val("Space");
+    } else {
+        $(arrowType).val(event.key);
+    }
     console.log(keyCode_set[arrowType]);
-    if (event.keyCode == "32") {
-        keyCode_set[arrowType] = "Space";
-    }
-    else {
-        keyCode_set[arrowType] = event.keyCode;
-    }
+    keyCode_set[arrowType] = event.keyCode;
 }
+
 
 function setDefaultValues() {
     $("#shootKey").val("Space");

@@ -7,6 +7,12 @@ let rightRickImagePath = "./src/images/game/rick_right.png";
 let leftRickImagePath = "./src/images/game/rick_left.png";
 let backRickImagePath = "./src/images/game/rick_back.png";
 let frontRickImagePath = "./src/images/game/rick_front.png";
+let shootKey = 'Space';
+
+export function getShootingKey(shoot){
+    shootKey = shoot;
+}
+
 
 export default class Player {
     rightPressed = false;
@@ -139,7 +145,7 @@ export default class Player {
             this.image.src = frontRickImagePath;
         }        
         //shoot
-        if(event.code == "Space") {
+        if(event.key == shootKey || event.code == shootKey) {
             this.shootPressed = true;
             this.bulletController.shoot(this.x + this.width / 2.5, this.y, 6);
 
@@ -168,7 +174,7 @@ export default class Player {
             this.image.src = backRickImagePath;
         }
         //shoot
-        if(event.code == "Space") {
+        if(event.key == shootKey || event.code == shootKey) {
             this.shootPressed = false;
         }
     }

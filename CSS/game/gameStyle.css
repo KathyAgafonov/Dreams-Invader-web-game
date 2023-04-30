@@ -1,18 +1,4 @@
-/*    #canvas-container {
-    position: relative;
-    background-color: transparent;
-  }
-  
-  #game {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: transparent;
-  }
-   */
-
-
-   #mute-button {
+#mute-button {
     position: absolute;
     bottom: 15vh;
     right: 10vh;
@@ -21,7 +7,6 @@
     outline: none;
   }
   
-
   #pause-button {
     position: absolute;
     bottom: 15vh;
@@ -31,7 +16,6 @@
     outline: none;
   }
   
-
   .popup {
     position: fixed;
     top: 50%;
@@ -65,8 +49,6 @@
     background-color: #3e8e41;
   }
   
-
-
   #recordTable {
     margin: 20px auto;
     border: 1px solid #ccc;
@@ -116,7 +98,7 @@
     border-radius: 5px;
     width: 50vh;
     font-size: large;
-    text-align: center; /* added to center all text */
+    text-align: center;
   }
   
   #score-table thead th {
@@ -154,3 +136,25 @@
     margin-top: 10%;
   }
   
+
+  .scoreAndTimeLeft-element {
+    position: fixed;
+    top: 7vh;
+    left: 200;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2.5vh;
+  }
+
+  #life-img {
+    position: fixed;
+    top: 4  0px;
+    right: 30px;
+    padding: 10px;
+    width: 10%;
+  }
+  
+
+      /* // ctx.fillText(`Score: ${score}`, 5, 30);
+    // ctx.fillText(`Time Left: ${minutesRemaining}:${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`, 200, 30); */
