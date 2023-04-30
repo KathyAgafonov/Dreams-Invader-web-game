@@ -111,23 +111,41 @@ function play() {
     document.getElementById("time_element").textContent = `${minutesRemaining}:${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`;
   }
 }
+let loserSound = new Audio('./src/audio/OMG_SO_EMBARRASSING.mp3');
+loserSound.volume = 0.2;
+
+let winnerSound = new Audio('./src/audio/ricky_ticky_tavy_beach.mp3');
+winnerSound.volume = 0.2;
+
 
 function displayGameOver() {
   if (isGameOver) {
     let text = "";
     if (lifes === 0) {
       text = "You lost";
+
+      setTimeout(() => {
+        loserSound.play();
+      }, 1000); // wait for 1 second
     }
     if (timeRemaining <= 0) {
       if (score < 100) {
         text = "You can do better, your score is: " + score;
+        setTimeout(() => {
+          loserSound.play();
+        }, 1000); // wait for 1 second
       }
       else {
         text = "Winner";
+        setTimeout(() => {
+          winnerSound.play();
+        }, 1000); // wait for 1 second
       }
     }
     if (isWinner) {
-      text = "Champion!";
+      setTimeout(() => {
+        winnerSound.play();
+      }, 1000); // wait for 1 second
     }
 
     ctx.fillStyle = "white";
