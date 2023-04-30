@@ -32,6 +32,9 @@ function loginSubmit(){
         // $("#register").hide();
         // $("#login").hide();
         $("#nav_logout").show();
+        $("#play").show();
+
+
         document.getElementById("loginForm").reset();
         // onlineUserText.show();
     }
@@ -52,6 +55,7 @@ function logout() {
     //style logout button as login
     $("#onlineUserText").hide();
     $("#nav_logout").hide();
+    $("#play").hide();
     $("#onlineUserText").text("Hi: ");
     switchPage('welcome-page', backgroundWelcomePagePath);
 }

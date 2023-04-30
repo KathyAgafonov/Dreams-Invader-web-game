@@ -150,7 +150,7 @@ function displayGameOver() {
     }
 
     ctx.fillStyle = "white";
-    ctx.font = "15vh Permanent Marker";
+    ctx.font = "6vh Permanent Marker";
     ctx.textAlign = "center";
     ctx.fillText(text, canvas.width / 2, canvas.height / 2);
     setTimeout(() => {
