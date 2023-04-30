@@ -129,7 +129,6 @@ function displayGameOver() {
     if (isWinner) {
       text = "Champion!";
     }
-    let textOffset = isWinner ? 3.5 : 5;
 
     ctx.fillStyle = "white";
     ctx.font = "15vh Permanent Marker";
@@ -304,14 +303,12 @@ menuItems.forEach(item => {
 });
 
 // // ----------------------------- Pause/Resume the game -----------------------------
-
 $("#pause-button").click(function () {
   pauseGame();
   console.log("pause")
   $(this).blur();
 
 });
-
 
 function pauseGame() {
   if (intervalId) {
