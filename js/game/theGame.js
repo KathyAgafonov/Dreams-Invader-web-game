@@ -42,6 +42,11 @@ let score;
 let scores;
 let shown;
 
+let now;
+let timeRemaining;
+let minutesRemaining;
+let secondsRemaining;
+
 let shootingKey = document.getElementById("#shootKey");
 let gameTime = document.getElementById("#gameTime");
 
@@ -78,22 +83,23 @@ function initScoresArray() {
 }
 
 const logoutButton = document.getElementById("nav_logout");
-// const playButton = document.getElementById("play");
 
 logoutButton.addEventListener("click", initScoresArray);
-// playButton.addEventListener("click", $("#score-table").hide());
-
 
 function play() {
   // Calculate time remaining
-  const now = new Date();
-  const timeRemaining = Math.max(0, 120 - Math.floor((now - gameStartTime) / 1000));
-  const minutesRemaining = Math.floor(timeRemaining / 60);
-  const secondsRemaining = timeRemaining % 60;
+  now = new Date();
+  timeRemaining = Math.max(0, 120 - Math.floor((now - gameStartTime) / 1000));
+  minutesRemaining = Math.floor(timeRemaining / 60);
+  secondsRemaining = timeRemaining % 60;
 
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   checkGameOver();
 
+  // Check if time is up
+  if (timeRemaining <= 0) {
+    isGameOver = true;
+  }
 
   if (!isGameOver) {
     enemyController.draw(ctx); // call the draw() method of EnemyController to draw the enemies on the canvas
@@ -113,15 +119,21 @@ function play() {
 
 }
 
+
+
 function displayGameOver() {
   if (isGameOver) {
     let text = "";
     if (lifes === 0) {
       text = "You lost";
-    } else if (lifes > 0 && score < 100) {
-      text = "You can do better, your score is: " + score;
-    } else if (lifes > 0 && score >= 100) {
-      text = "Winner";
+    }
+    if (timeRemaining <= 0) {
+      if (score < 100) {
+        text = "You can do better, your score is: " + score;
+      }
+      else {
+        text = "Winner";
+      }
     }
     if (isWinner) {
       text = "Champion!";
@@ -129,15 +141,20 @@ function displayGameOver() {
     let textOffset = isWinner ? 3.5 : 5;
 
     ctx.fillStyle = "white";
-    ctx.font = "50px David";
-    ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
-    if (!shown) {
-      scores.push(score);
-      showScores();
-      shown = true;
-    }
+    ctx.font = "15vh Permanent Marker";
+    ctx.textAlign = "center";
+    ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+    setTimeout(() => {
+      ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+      if (!shown) {
+        scores.push(score);
+        showScores();
+        shown = true;
+      }
+    }, 3000);
   }
 }
+
 
 
 function checkGameOver() {
@@ -299,4 +316,23 @@ menuItems.forEach(item => {
   });
 });
 
+// // ----------------------------- Pause/Resume the game -----------------------------
+
+$("#pause-button").click(function () {
+  pauseGame();
+  console.log("pause")
+  $(this).blur();
+
+});
+
+
+function pauseGame() {
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
+    backgroundSound.pause();
+  } else {
+    startGame();
+  }
+}
 

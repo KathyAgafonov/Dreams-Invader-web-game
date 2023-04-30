@@ -16,18 +16,21 @@
     position: absolute;
     bottom: 15vh;
     right: 10vh;
-    /* width: 7vh; */
-    /* height: 8vh; */
     background-color: transparent;
     border: none;
     outline: none;
   }
   
-  #mute-icon {
-    width: 50%;
-    height: 50%;
-  }
 
+  #pause-button {
+    position: absolute;
+    bottom: 15vh;
+    right: 15vh;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  
 
   .popup {
     position: fixed;
