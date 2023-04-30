@@ -151,7 +151,7 @@ function displayGameOver() {
         showScores();
         shown = true;
       }
-    }, 3000);
+    }, 2000);
   }
 }
 
@@ -283,6 +283,19 @@ $(document).ready(function () {
     gamePlayed = true;
   });
 });
+
+
+function play() {
+  // Start the game here
+  if (gamePlayed) {
+    endGame();
+    gamePlayed = false;
+  }
+  newGame();
+  startGame();
+
+  gamePlayed = true;
+}
 
 
 
