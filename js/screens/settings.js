@@ -1,3 +1,7 @@
+import { startGame } from '../game/theGame.js';
+import { getSettings } from "../game/Player.js";
+
+
 var keyCode_set;
 
 $(document).ready(function () {
@@ -8,18 +12,47 @@ $(document).ready(function () {
     keyCode_set = { "#shootKey": 38 };
 });
 
+$().ready(function () {
+    $("#settingForm").validate({
+        rules: {
+            gameTime: {
+                range: [1200, Infinity]
+            }
+        },
+        messages: {
+            gameTime:
+                "Min=1200"
+        },
+        errorPlacement: function (label, element) {
+            label.addClass('errorSettingMessage');
+            label.insertAfter(element);
+        },
+        wrapper: 'span',
+
+        submitHandler: function (event) {
+            settingSubmit();
+        }
+
+    });
+});
+
+
+
 function settingSubmit() {
     var $inputs = $('#settingForm :input');
     var values = {};
     $inputs.each(function () {
         values[this.name] = $(this).val();
     });
-    // reciveSettings(keyCode_set["#upArrow"], keyCode_set["#downArrow"], keyCode_set["#leftArrow"], keyCode_set["#rightArrow"],values["gameTime"]);
-    
+
+    startGame(); // Add this line to start the game
+
     console.log(keyCode_set);
     console.log(values);
     switchPage('game-page', null);
+
 }
+
 
 
 function keydownpressed(event, arrowType) {

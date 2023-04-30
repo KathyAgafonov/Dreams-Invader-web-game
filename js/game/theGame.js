@@ -287,7 +287,7 @@ $(document).ready(function () {
 
 let gamePlayed = false;
 
-function startGame() {
+export function startGame() {
   backgroundSound.currentTime = 0;
   backgroundSound.play();
   intervalId = setInterval(play, 10);
