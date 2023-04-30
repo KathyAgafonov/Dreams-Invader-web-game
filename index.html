@@ -2,16 +2,8 @@
 <html lang="en">
 
 <head>
-    <!-- <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-
     <script src="./js/jquery-3.4.1.slim.min.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script> -->
 
-
-    <!-- kathy -->
     <!-- CSS files -->
     <link rel="stylesheet" href="./CSS/screens/screen-style.css" />
     <link rel="stylesheet" href="./CSS/screens/login.css" />
@@ -23,7 +15,7 @@
     <link rel="stylesheet" href="./CSS/game/gameStyle.css" />
 
 
-    <title>Document</title>
+    <title>Dreams Invader</title>
 </head>
 <header>
 
@@ -32,7 +24,7 @@
 <body>
 
     <!---------------------------------------- menu ---------------------------------------->
-    <div class="w3-top">
+    <div class="w3-top" style="font-family: 'Permanent Marker', cursive;">
         <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="menuNavBar">
             <a class="w3-bar-item w3-button" onclick="switchPage('welcome-page', backgroundWelcomePagePath)">Welcome</a>
             <a id="about" class="w3-bar-item w3-button" onclick="aboutPopup_show()">About</a>
@@ -45,8 +37,7 @@
                 style="display: none; color: #40f521;">New Game</a>
 
             <!-- <a id="hi" class="w3-bar-item w3" style="float: right; padding-right: 30px;"><span>Hi </span><span id="loged_in_uname">guest</span></a> -->
-            <div class="w3-bar-item w3" style="float: right; padding-right: 30px; display: none;" id="onlineUserText">
-                Hi: </div>
+            <div class="w3-bar-item w3" style="float: right; padding-right: 30px; display: none;" id="onlineUserText">Hi: </div>
         </div>
     </div>
 
@@ -99,8 +90,6 @@
                     &emsp;&emsp;Right: use the ➡ Key<br>
                     &emsp;&emsp;Shot: Space Bar by deafult, but you can choose your own Key<br>
                     </p>
-
-
                     <p>
                     <p><u><b>General instructions:</b></u></p>
                     <ul>
@@ -125,15 +114,11 @@
         </div>
     </div>
 
-
-
-
-
     <!---------------------------------------- login div ---------------------------------------->
     <div id="login-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
 
         <div id="loginele" class="login-box">
-            <h2>Login</h2>
+            <h2 style="font-family: 'Permanent Marker', cursive; font-size: 7vh;">Login</h2>
             <form id="loginForm">
                 <div class="user-box">
                     <input type="text" name="Username" required="">
@@ -158,7 +143,7 @@
     <!---------------------------------------- register div ---------------------------------------->
     <div id="register-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
         <div id="register" class="register-box">
-            <h2>Register</h2>
+            <h2 style="font-family: 'Permanent Marker', cursive; font-size: 7vh;">Register</h2>
             <form id="registerForm" method="post">
 
                 <div class="user-box">
@@ -213,7 +198,7 @@
     <!---------------------------------------- settings div ---------------------------------------->
     <div id="settings-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
         <div id="settingScreen" class="setting-box">
-            <h2>Setting</h2>
+            <h2 style="font-family: 'Permanent Marker', cursive; font-size: 7vh;">Setting</h2>
             <form id="settingForm" method="post">
                 <div class="user-setting-box">
                     <input value="Space" type="button" id="shootKey" name="shootKey" required>
