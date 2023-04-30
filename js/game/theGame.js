@@ -166,7 +166,7 @@ function displayGameOver() {
 
 
 function checkGameOver() {
-  $("#life-img").attr("src", "/src/images/game/" + lifes + "life.png");
+  $("#life-img").attr("src", "./src/images/game/" + lifes + "life.png");
 
   if (enemyBulletController.collides(player)) {
     player.hit()
@@ -182,7 +182,7 @@ function checkGameOver() {
     isGameOver = true;
     displayGameOver();
     endGame();
-    $("#life-img").attr("src", "/src/images/game/" + lifes + "life.png");
+    $("#life-img").attr("src", "./src/images/game/" + lifes + "life.png");
 
   }
 }
@@ -255,7 +255,7 @@ $('#mute-button').click(function () {
     player.playerSoundDeath.muted = false;
     enemyController.enemySoundDeath.muted = false;
     backgroundSound.muted = false;
-    $('#mute-icon').attr('src', 'src/images/game/volume.png').css({ 'width': '30px', 'height': '30px' });
+    $('#mute-icon').attr('src', '.src/images/game/volume.png').css({ 'width': '30px', 'height': '30px' });
     $('audio').prop('muted', false);
 
   } else {
@@ -264,7 +264,7 @@ $('#mute-button').click(function () {
     enemyController.enemySoundDeath.muted = true;
     backgroundSound.muted = true;
 
-    $('#mute-icon').attr('src', 'src/images/game/volume-mute.png').css({ 'width': '30px', 'height': '30px' });
+    $('#mute-icon').attr('src', '.src/images/game/volume-mute.png').css({ 'width': '30px', 'height': '30px' });
     $('audio').prop('muted', true);
 
   }
@@ -328,7 +328,7 @@ export function startGame() {
 function endGame() {
   backgroundSound.pause();
   backgroundSound.currentTime = 0;
-  $('#mute-icon').attr('src', 'src/images/game/volume.png').css({ 'width': '30px', 'height': '30px' });
+  $('#mute-icon').attr('src', '.src/images/game/volume.png').css({ 'width': '30px', 'height': '30px' });
   clearInterval(intervalId);
 
 }
