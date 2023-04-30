@@ -82,7 +82,7 @@
     </div>
 
     <!---------------------------------------- login div ---------------------------------------->
-        <div id="login-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
+    <div id="login-page" class="w3-container w3-half w3-padding-64 page hide w3-display-middle">
 
         <div id="login" class="login-box">
             <h2>Login</h2>
@@ -164,7 +164,7 @@
             <form id="settingForm" method="post">
                 <div class="user-setting-box">
                     <input value="Space" type="button" id="shootKey" name="shootKey" required>
-                    <label >Shooting key: </label>
+                    <label>Shooting key: </label>
                 </div>
 
                 <div class="user-setting-box">
@@ -203,41 +203,50 @@
         </div>
         <div>
             <table id="score-table" style="display: none;">
-              <thead>
-                <tr>
-                  <th colspan="2">
-                    <h1 style="font-family: 'Permanent Marker', cursive;">SCORE TABLE</h1>
-                  </th>
-                </tr>
-                <tr>
-                  <th>Rank</th>
-                  <th>Score</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Rows will be added dynamically using jQuery -->
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="2">
-                    <button class="close-btn" onclick="$('#score-table').hide();">X</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="2">
-                    <button id="new-game-btn" class="new-game-btn" >New Game</button>
-                </td>
-                </tr>
-              </tfoot>
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            <h1 style="font-family: 'Permanent Marker', cursive;">SCORE TABLE</h1>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <a style="font-family: 'Permanent Marker', cursive; font-size: 2.5vh; "> 
+                                <span id="loged_in_uname_score_table"></span><span> ALL TIME SCORE</span>
+                                <!-- <h2 id="allTimeTitle"> ALL TIME SCORE</h2> -->
+                            </a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added dynamically using jQuery -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <button class="close-btn" onclick="$('#score-table').hide();">X</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button id="new-game-btn" class="new-game-btn">New Game</button>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
-          </div>
+        </div>
 
-          <button id="pause-button"><img id="ause-icon" src="/src/images/game/play.png"style="width: 35px; height: 35px;"></button>
+        <button id="pause-button"><img id="ause-icon" src="/src/images/game/play.png"
+                style="width: 35px; height: 35px;"></button>
 
-          <!-- <button id="btn-pause" class="#btn-pause" style="width: 30px; height: 30px; color: aliceblue;">STOP</button> -->
+        <!-- <button id="btn-pause" class="#btn-pause" style="width: 30px; height: 30px; color: aliceblue;">STOP</button> -->
 
-          
-          
+
+
     </div>
 
     <!---------------------------------------- footer div ---------------------------------------->
