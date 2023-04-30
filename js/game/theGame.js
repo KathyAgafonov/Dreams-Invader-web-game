@@ -16,7 +16,7 @@ const scoreElement = document.getElementById("scoreElement");
 
 // background
 const background = new Image();
-background.src = "src/images/game/background-canvas.png";
+background.src = "./src/images/game/background-canvas.png";
 
 // ----------------------------- Declaration of game variables -----------------------------
 
@@ -255,7 +255,7 @@ $('#mute-button').click(function () {
     player.playerSoundDeath.muted = false;
     enemyController.enemySoundDeath.muted = false;
     backgroundSound.muted = false;
-    $('#mute-icon').attr('src', '.src/images/game/volume.png').css({ 'width': '30px', 'height': '30px' });
+    $('#mute-icon').attr('src', './src/images/game/volume.png').css({ 'width': '30px', 'height': '30px' });
     $('audio').prop('muted', false);
 
   } else {
@@ -264,7 +264,7 @@ $('#mute-button').click(function () {
     enemyController.enemySoundDeath.muted = true;
     backgroundSound.muted = true;
 
-    $('#mute-icon').attr('src', '.src/images/game/volume-mute.png').css({ 'width': '30px', 'height': '30px' });
+    $('#mute-icon').attr('src', './src/images/game/volume-mute.png').css({ 'width': '30px', 'height': '30px' });
     $('audio').prop('muted', true);
 
   }
@@ -328,7 +328,7 @@ export function startGame() {
 function endGame() {
   backgroundSound.pause();
   backgroundSound.currentTime = 0;
-  $('#mute-icon').attr('src', '.src/images/game/volume.png').css({ 'width': '30px', 'height': '30px' });
+  $('#mute-icon').attr('src', './src/images/game/volume.png').css({ 'width': '30px', 'height': '30px' });
   clearInterval(intervalId);
 
 }
