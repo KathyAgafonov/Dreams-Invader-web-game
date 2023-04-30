@@ -1,7 +1,9 @@
 <img src="https://user-images.githubusercontent.com/85673795/235356923-acf4ceb9-6700-428f-bc20-5e10dcce5067.png" alt="logo" width="300">
 
-# Dreams Invader - Scary Rick VS. Scary Terry
-Welcome to Rick vs Scary Terry, a game inspired by Chicken Invaders where you play as Rick and try to defeat the Dream Invader, Scary Terry.
+# Dreams Invader - Rick VS. Scary Terry
+Welcome to Rick vs Scary Terry, a game inspired by Rick and Morty serias season 1, episode 2.
+
+Scary terry invaded Morty's dreams and Rick tries to rescue him. You must team up with Rick and help him defeat the dream invader, Scary Terry and save Morty
 
 ## Getting Started
 
