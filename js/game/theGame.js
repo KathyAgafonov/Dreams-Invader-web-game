@@ -182,10 +182,8 @@ function checkGameOver() {
 
 // --------- print the score table popup ---------
 function showScores() {
-  // Get a reference to the table body
   var tableBody = $('#score-table tbody');
 
-  // Clear the table body first
   tableBody.empty();
 
   let user = $("#onlineUserText").text().replace("Hi:", "");
@@ -194,21 +192,12 @@ function showScores() {
   // Create a new row for "p all time score"
   var allTimeScoreRow = $('<tr>');
 
-  // var allTimeScoreCell = $('<td>').attr('colspan', 2).text(`${user} all time score`);
-  // allTimeScoreRow.append(allTimeScoreCell);
   tableBody.append(allTimeScoreRow);
 
-  // Sort scores by score in descending order
-  scores.sort(function (a, b) {
-    return b.score - a.score;
-  });
-
-  // Iterate over the scores array and add rows to the table
+  scores.sort(function(a, b){return b - a});
   scores.forEach(function (score, index) {
-    // Create a new table row
     var newRow = $('<tr>');
 
-    // Create table cells and set their text content
     var rankCell = $('<td>').text(index + 1);
     var scoreCell = $('<td>').text(score);
 
@@ -216,7 +205,6 @@ function showScores() {
     newRow.append(rankCell);
     newRow.append(scoreCell);
 
-    // Add the row to the table body
     tableBody.append(newRow);
   });
 
