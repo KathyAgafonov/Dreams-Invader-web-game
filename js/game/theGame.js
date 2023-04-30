@@ -156,7 +156,6 @@ function displayGameOver() {
 }
 
 
-
 function checkGameOver() {
   $("#life-img").attr("src", "/src/images/game/" + lifes + "life.png");
 
@@ -181,12 +180,23 @@ function checkGameOver() {
 
 // ----------------------------- popup with the record table and a button for a new game -----------------------------
 
+// --------- print the score table popup ---------
 function showScores() {
   // Get a reference to the table body
   var tableBody = $('#score-table tbody');
 
   // Clear the table body first
   tableBody.empty();
+
+  let user = $("#onlineUserText").text().replace("Hi:", "");
+  $("#loged_in_uname_score_table").text(user);
+
+  // Create a new row for "p all time score"
+  var allTimeScoreRow = $('<tr>');
+
+  // var allTimeScoreCell = $('<td>').attr('colspan', 2).text(`${user} all time score`);
+  // allTimeScoreRow.append(allTimeScoreCell);
+  tableBody.append(allTimeScoreRow);
 
   // Sort scores by score in descending order
   scores.sort(function (a, b) {
@@ -214,7 +224,7 @@ function showScores() {
   $('#score-table').show();
 }
 
-// Hide the popup table when clicking outside of it
+// --------- Hide the popup table when clicking outside of it ---------
 document.addEventListener('click', function (event) {
   var scoreTable = document.getElementById('score-table');
   if (event.target !== scoreTable && !scoreTable.contains(event.target)) {
@@ -222,7 +232,7 @@ document.addEventListener('click', function (event) {
   }
 });
 
-// new game button
+// --------- new game button ---------
 $(document).ready(function () {
   $('#new-game-btn').on('click', function () {
 
