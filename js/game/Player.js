@@ -9,7 +9,7 @@ let backRickImagePath = "./src/images/game/rick_back.png";
 let frontRickImagePath = "./src/images/game/rick_front.png";
 let shootKey = 'Space';
 
-export function getShootingKey(shoot){
+export function getShootingKey(shoot) {
     shootKey = shoot;
 }
 
@@ -29,10 +29,10 @@ export default class Player {
         this.canvas = canvas;
         this.velocity = velocity;
         this.bulletController = bulletController;
-        
+
         const screenHeight = window.innerHeight;
         // const imageHeight = screenHeight * 0.09;
-        
+
         this.image = new Image();
         this.image.src = backRickImagePath;
         // this.image.onload = () => {
@@ -64,18 +64,23 @@ export default class Player {
         // flashing image
         this.flashing = true;
         this.flashStartTime = Date.now();
+        
+        this.x = 50; // Adjust this value as needed to position the object on the left
+        this.y = this.canvas.height - this.height + 100; // bottom of the screen
+        
+
 
     }
 
     draw(ctx) {
-        if(this.flashing) {
+        if (this.flashing) {
             const flashElapsedTime = Date.now() - this.flashStartTime;
             if (flashElapsedTime > this.flashDuration) {
-              this.flashing = false;
+                this.flashing = false;
             } else if (flashElapsedTime % 200 < 100) {
-              // toggle visibility every 200ms
-              return;
-            } 
+                // toggle visibility every 200ms
+                return;
+            }
         }
         // if(this.shootPressed){
         //     this.bulletController.shoot(this.x + this.width / 2, this.y, 4);
@@ -87,94 +92,94 @@ export default class Player {
 
     exceedLimits() {
         //left
-        if(this.x < 0) {
+        if (this.x < 0) {
             this.x = 0;
         }
         //right
-        if(this.x > this.canvas.width - this.width) {
+        if (this.x > this.canvas.width - this.width) {
             this.x = this.canvas.width - this.width;
         }
         //up
-        if(this.y < 0) {
+        if (this.y < 0) {
             this.y = 0;
         }
         //up - The player can move up to 40% of the lower area of the canvas
-        if(this.y <= this.canvas.height * 0.4) { 
+        if (this.y <= this.canvas.height * 0.4) {
             this.y = this.canvas.height * 0.4;
         }
         //down
-        if(this.y > this.canvas.height - this.height * 2.5) {
+        if (this.y > this.canvas.height - this.height * 2.5) {
             this.y = this.canvas.height - this.height * 2.5;
         }
     }
 
     move() {
-        if(this.rightPressed) {
+        if (this.rightPressed) {
             this.x += this.velocity;
         }
-        if(this.leftPressed) {
+        if (this.leftPressed) {
             this.x -= this.velocity;
         }
-        if(this.upPressed) {
+        if (this.upPressed) {
             this.y -= this.velocity;
         }
-        if(this.downPressed) {
+        if (this.downPressed) {
             this.y += this.velocity;
         }
     }
 
     keydown = (event) => {
         //right
-        if(event.code == "ArrowRight") {
+        if (event.code == "ArrowRight") {
             this.rightPressed = true;
             this.image.src = rightRickImagePath;
         }
         //left
-        if(event.code == "ArrowLeft") {
+        if (event.code == "ArrowLeft") {
             this.leftPressed = true;
             this.image.src = leftRickImagePath;
         }
         //up
-        if(event.code == "ArrowUp") {
+        if (event.code == "ArrowUp") {
             this.upPressed = true;
             this.image.src = backRickImagePath;
         }
         //down
-       if(event.code == "ArrowDown") {
+        if (event.code == "ArrowDown") {
             this.downPressed = true;
             this.image.src = frontRickImagePath;
-        }        
+        }
         //shoot
-        if(event.key == shootKey || event.code == shootKey) {
+        if (event.key == shootKey || event.code == shootKey) {
             this.shootPressed = true;
             this.bulletController.shoot(this.x + this.width / 2.5, this.y, 6);
 
         }
     }
 
-    
+
     keyup = (event) => {
         //right
-        if(event.code == "ArrowRight") {
+        if (event.code == "ArrowRight") {
             this.rightPressed = false;
             this.image.src = backRickImagePath;
         }
         //left
-        if(event.code == "ArrowLeft") {
+        if (event.code == "ArrowLeft") {
             this.leftPressed = false;
             this.image.src = backRickImagePath;
         }
         //up
-        if(event.code == "ArrowUp") {
+        if (event.code == "ArrowUp") {
             this.upPressed = false;
         }
         //down
-        if(event.code == "ArrowDown") {
+        if (event.code == "ArrowDown") {
             this.downPressed = false;
             this.image.src = backRickImagePath;
         }
         //shoot
-        if(event.key == shootKey || event.code == shootKey) {
+        if (event.key == shootKey || event.code == shootKey) {
             this.shootPressed = false;
         }
     }
