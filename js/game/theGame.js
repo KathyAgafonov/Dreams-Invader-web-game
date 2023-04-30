@@ -1,5 +1,4 @@
 import EnemyController from "./EnemyController.js";
-// import Score from "./Score.js";
 import Player from "./Player.js";
 import BulletController from "./BulletController.js";
 
@@ -19,13 +18,10 @@ const scoreElement = document.getElementById("scoreElement");
 const background = new Image();
 background.src = "src/images/game/background-canvas.png";
 
-
-
 // ----------------------------- Declaration of game variables -----------------------------
 
 let playerBulletController;
 let player;
-let playerLife;
 
 let enemyBulletController;
 let enemyController;
@@ -48,7 +44,7 @@ let minutesRemaining;
 let secondsRemaining;
 
 let game_time = 120;
-export function getGameTime(gTime){
+export function getGameTime(gTime) {
   game_time = gTime;
 }
 
@@ -85,7 +81,6 @@ function initScoresArray() {
 }
 
 const logoutButton = document.getElementById("nav_logout");
-
 logoutButton.addEventListener("click", initScoresArray);
 
 function play() {
@@ -98,29 +93,24 @@ function play() {
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   checkGameOver();
 
-  // Check if time is up
+  // Check if time is done
   if (timeRemaining <= 0) {
     isGameOver = true;
   }
 
   if (!isGameOver) {
-    enemyController.draw(ctx); // call the draw() method of EnemyController to draw the enemies on the canvas
+    enemyController.draw(ctx);
     enemyController.updateEnemies(); // update the position of the enemies
     player.draw(ctx);
     playerBulletController.draw(ctx);
     enemyBulletController.draw(ctx);
 
     score = enemyController.score;
-    ctx.fillStyle = "white";
-    ctx.font = "2.5vh Permanent Marker";
 
     document.getElementById("score_element").textContent = score;
     document.getElementById("time_element").textContent = `${minutesRemaining}:${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`;
   }
-
 }
-
-
 
 function displayGameOver() {
   if (isGameOver) {
@@ -152,7 +142,7 @@ function displayGameOver() {
         showScores();
         shown = true;
       }
-    }, 2000);
+    }, 1500);
   }
 }
 
@@ -195,7 +185,7 @@ function showScores() {
 
   tableBody.append(allTimeScoreRow);
 
-  scores.sort(function(a, b){return b - a});
+  scores.sort(function (a, b) { return b - a });
   scores.forEach(function (score, index) {
     var newRow = $('<tr>');
 
@@ -269,7 +259,6 @@ $(window).on('beforeunload', function () {
 });
 
 
-
 $(document).ready(function () {
   $('#play').on('click', function () {
     startGame();
@@ -287,14 +276,14 @@ export function gameIntervals() {
 }
 
 export function startGame() {
-    if (gamePlayed) {
-      endGame();
-      gamePlayed = false;
-    }
-    newGame();
-    gameIntervals();
+  if (gamePlayed) {
+    endGame();
+    gamePlayed = false;
+  }
+  newGame();
+  gameIntervals();
 
-    gamePlayed = true;
+  gamePlayed = true;
 }
 
 function endGame() {
