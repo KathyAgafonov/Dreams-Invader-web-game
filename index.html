@@ -44,7 +44,7 @@
             <a id="play" class="w3-bar-item w3-button" onclick="switchPage('game-page', null)">Play</a>
 
             <!-- <a id="hi" class="w3-bar-item w3" style="float: right; padding-right: 30px;"><span>Hi </span><span id="loged_in_uname">guest</span></a> -->
-            <div  id="nav_logout" class="w3-bar-item w3-button" onclick="logout()" style="display: none;">LogOut</div>
+            <div id="nav_logout" class="w3-bar-item w3-button" onclick="logout()" style="display: none;">LogOut</div>
             <div class="w3-bar-item w3" style="float: right; padding-right: 30px; display: none;" id="onlineUserText">
                 Hi: </div>
         </div>
@@ -129,8 +129,13 @@
                 </div>
 
                 <div class="user-box">
-                    <input type="text" name="Fullname" required="">
+                    <input type="text" name="First_name" required="">
                     <label>First name</label>
+                </div>
+
+                <div class="user-box">
+                    <input type="text" name="Last_name" required="">
+                    <label>Last name</label>
                 </div>
 
                 <div class="user-box">

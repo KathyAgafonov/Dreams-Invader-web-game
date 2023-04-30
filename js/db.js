@@ -3,7 +3,8 @@ const db = [
     {
         username: "p",
         password: "testuser",
-        fullname: "pipi",
+        First_name: "pipi",
+        Last_name: "pi",
         email: "p@pipi.com",
         dateOfBirth: "27-04-2023"
     }
@@ -16,8 +17,8 @@ function addToDB(userID, pass, fname, lname, mail, birthDate) {
     newUser = {
         username: userID,
         password: pass,
-        Fullname: fname,
-        // Last_name: lname,
+        First_name: fname,
+        Last_name: lname,
         email: mail,
         dateOfBirth: birthDate
     }

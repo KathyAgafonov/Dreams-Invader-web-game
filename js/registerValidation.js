@@ -1,8 +1,8 @@
-$().ready(function() {
+$().ready(function () {
     $("#registerForm").validate({
         rules: {
             Username: "required",
-            Password: { 
+            Password: {
                 required: true,
                 minlength: 8,
                 pwcheck: true
@@ -12,12 +12,16 @@ $().ready(function() {
                 minlength: 8,
                 pwcheck: true,
                 passwordMatch: true // Add the new rule here
-              },
-            Fullname: {
+            },
+            First_name: {
                 required: true,
                 fncheck: true
             },
-     
+
+            Last_name: {
+                required: true,
+                fncheck: true
+            },
             Email: {
                 required: true,
                 email: true
@@ -31,38 +35,42 @@ $().ready(function() {
                 minlength: "Minimum 8 characters",
                 pwcheck: "Must contain letters and numbers"
             },
-            Fullname: {
+            First_name: {
+                required: "Missing",
+                fncheck: "Can't contain numbers"
+            },
+            Last_name: {
                 required: "Missing",
                 fncheck: "Can't contain numbers"
             },
             Email: {
-                required:"Missing",
+                required: "Missing",
                 email: "Email is not valid"
             },
             DateOfBirth: "Missing"
         },
-        errorPlacement: function(label, element) {
+        errorPlacement: function (label, element) {
             label.addClass('errorMessage');
             label.insertAfter(element);
-          },
-          wrapper: 'span',
+        },
+        wrapper: 'span',
 
-          submitHandler: function(event){
+        submitHandler: function (event) {
             var password = $("#pass_reg").val();
             registerSubmit();
         }
 
     });
 });
-$.validator.addMethod("passwordMatch", function(value, element) {
+$.validator.addMethod("passwordMatch", function (value, element) {
     return value == $("#pass_reg").val();
-  }, "Passwords do not match");
+}, "Passwords do not match");
 
-$.validator.addMethod("pwcheck",function(value) {
+$.validator.addMethod("pwcheck", function (value) {
     return /^[A-z0-9\d=!\-@._*]*$/.test(value) && /[A-z]/.test(value) && /\d/.test(value);
 });
 
-$.validator.addMethod("fncheck",function(value) {
+$.validator.addMethod("fncheck", function (value) {
     return !(/[0-9]/.test(value));
 });
 
