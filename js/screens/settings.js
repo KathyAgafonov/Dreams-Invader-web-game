@@ -16,12 +16,12 @@ $().ready(function () {
     $("#settingForm").validate({
         rules: {
             gameTime: {
-                range: [1200, Infinity]
+                range: [120, Infinity]
             }
         },
         messages: {
             gameTime:
-                "Min=1200"
+                "Min=120"
         },
         errorPlacement: function (label, element) {
             label.addClass('errorSettingMessage');

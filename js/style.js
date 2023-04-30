@@ -1,10 +1,4 @@
 // ----------------------------------- initialization -----------------------------------
-let shootKey = ' '
-let timerDuration = 120000;  //in seconds
-let logesUser;
-let isUserLoggedIn = false;
-var muteSound = true;
-
 let backgroundWelcomePagePath = 'src/images/screens/scary-welcome-cover.png';
 let backgroundOtherPagesPath = 'src/images/screens/second_background.png';
 let backgroundGamePagesPath = 'src/images/screens/background-canvas.png';

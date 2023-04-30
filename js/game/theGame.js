@@ -47,7 +47,7 @@ let timeRemaining;
 let minutesRemaining;
 let secondsRemaining;
 
-let game_time = 120
+let game_time = 120;
 export function getGameTime(gTime){
   game_time = gTime;
 }
