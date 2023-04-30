@@ -1,13 +1,22 @@
 // ----------------------------------- initialization -----------------------------------
 let backgroundWelcomePagePath = 'src/images/screens/scary-welcome-cover.png';
 let backgroundOtherPagesPath = 'src/images/screens/second_background.png';
-let backgroundGamePagesPath = 'src/images/screens/background-canvas.png';
 
 $(document).ready(function () {
     switchPage('welcome-page', backgroundWelcomePagePath);
 });
 
 // ----------------------------------- switchPages -----------------------------------
+
+function onlineUserCheck(pageName) {
+    let user = $("#onlineUserText").text()
+    if(user.length > 4) {
+        // do nothing, user already logged in
+    }
+    else {
+        switchPage(pageName, backgroundOtherPagesPath);
+    }
+}
 
 function switchPage(pageName, backgroundImagePath) {
     console.log(pageName)
