@@ -1,4 +1,4 @@
-### Rick vs Scary Terry
+# Rick vs Scary Terry
 
 Welcome to Rick vs Scary Terry, a game inspired by Chicken Invaders where you play as Rick and try to defeat the Dream Invader, Scary Terry.
 
